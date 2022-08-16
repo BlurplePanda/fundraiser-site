@@ -8,29 +8,26 @@ if(mysqli_connect_errno()){
 <html lang='en'>
 
    <head>
-      <title> Wellington Girls' College Canteen </title>
+      <title> Rundfaise </title>
       <meta charset='utf-8'>
       <link rel='stylesheet' type='text/css' href='style.css'>
    </head>
 
    <body>
       <header>
-          <img src='images/wgclogotext.png' alt='WGC logo' class='center'>
+          <img src='' alt='Rundfaise logo' class='center'>
           <nav>
               <a href='index.php' class='button' id='current'> Home </a>
-              <a href='menu.php' class='button'> Menu </a>
+              <a href='campaignlist.php' class='button'> Campaigns </a>
               <a href='specials.php' class='button'> Specials </a>
 
           </nav>
       </header>
 
       <main>
-          <h1>Welcome to Wellington Girls' College Canteen!</h1>
-          <p>Here at Wellington Girls' College we strive to provide healthy yet tasty food for all the students.
-              We offer a variety of food and drinks all for reasonable prices. Head to our <a href='menu.php'>menu page</a> to check out
-              the products!</p>
-          <img id='home-page-image' src='images/canteentuckshopimage.jpg' alt='Students queuing at a school canteen'>
-
+          <h1>Rundfaise</h1>
+          <p>Fundraiser platform for various charities blah blah blah :D</p>
+          <img id='home-page-image' src='' alt='A cartoon hand holding/giving a love heart'>
 
 
       </main>

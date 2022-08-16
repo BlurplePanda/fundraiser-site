@@ -8,24 +8,24 @@ if(mysqli_connect_errno()){
 <html lang='en'>
 
 <head>
-    <title> Wellington Girls' College Canteen </title>
+    <title> Rundfaise </title>
     <meta charset='utf-8'>
     <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
 
 <body>
 <header>
-    <img src='images/wgclogotext.png' alt='WGC logo' class='center'>
+    <img src='' alt='Rundfaise logo' class='center'>
     <nav>
         <a href='index.php' class='button'> Home </a>
-        <a href='menu.php' class='button'> Menu </a>
+        <a href='campaignlist.php' class='button'> Campaigns </a>
         <a href='specials.php' class='button'> Specials </a>
 
     </nav>
 </header>
 
 <main>
-    <h1> Item Information </h1>
+    <h1> Campaign Information </h1>
 
     <div class='item-info'>
     <?php

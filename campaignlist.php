@@ -11,7 +11,7 @@ $all_items_result = mysqli_query($con, $all_items_query);
 <html lang='en'>
 
 <head>
-    <title> Wellington Girls' College Canteen </title>
+    <title> Rundfaise </title>
     <meta charset='utf-8'>
     <link rel='stylesheet' type='text/css' href='style.css'>
 </head>
@@ -19,17 +19,17 @@ $all_items_result = mysqli_query($con, $all_items_query);
 <body>
 
 <header>
-    <img src='images/wgclogotext.png' alt='WGC logo' class='center'>
+    <img src='' alt='Rundfaise logo' class='center'>
     <nav>
         <a href='index.php' class='button'> Home </a>
-        <a href='menu.php' class='button' id='current'> Menu </a>
+        <a href='campaignlist.php' class='button' id='current'> Campaigns </a>
         <a href='specials.php' class='button'> Specials </a>
 
     </nav>
 </header>
 
 <main>
-    <h1>Menu</h1>
+    <h1>Campaigns</h1>
     <h2> Search </h2>
     <div class='searches'>
     <div class='search'>
@@ -52,7 +52,7 @@ $all_items_result = mysqli_query($con, $all_items_query);
         }
         else {
             while($row = mysqli_fetch_array($search_result)) {
-                echo "<a href='item.php?id=".$row['itemID']."'><img src='images/".$row['itemImageName']."' alt='' class='searchitemimage'>" .$row ['itemName']."</a>";
+                echo "<a href='campaign.php?id=".$row['itemID']."'><img src='images/".$row['itemImageName']."' alt='' class='searchitemimage'>" .$row ['itemName']."</a>";
                 echo "<br>";
             }
         }
@@ -84,7 +84,7 @@ $all_items_result = mysqli_query($con, $all_items_query);
         }
         else {
             while($type_record = mysqli_fetch_array($type_result)) {
-                echo "<a href='item.php?id=".$type_record['itemID']."'><img src='images/".$type_record['itemImageName']."' alt='' class='searchitemimage'>" .$type_record ['itemName']."</a>";
+                echo "<a href='campaign.php?id=".$type_record['itemID']."'><img src='images/".$type_record['itemImageName']."' alt='' class='searchitemimage'>" .$type_record ['itemName']."</a>";
                 echo "<br>";
             }
         }
@@ -92,7 +92,7 @@ $all_items_result = mysqli_query($con, $all_items_query);
     }
     ?></div></div>
 
-    <h2> All Items</h2>
+    <h2> All Campaigns</h2>
     <form name='sort_form' id='sort_form' method='post'>
         <label for='sortby'> Sort by: </label>
         <select id='sortby' name='sortby'>
@@ -120,7 +120,7 @@ $all_items_result = mysqli_query($con, $all_items_query);
 
     while($sort_items_record = mysqli_fetch_assoc($sort_items_result)) {
         echo "<div class='item'>";
-        echo "<p><a href='item.php?id=".$sort_items_record['itemID']."&fromurl=".$_SERVER['REQUEST_URI']."'><img src='images/".$sort_items_record['itemImageName']."' alt='' class='allitemsimage'><br>" . $sort_items_record['itemName'] . " ";
+        echo "<p><a href='campaign.php?id=".$sort_items_record['itemID']."&fromurl=".$_SERVER['REQUEST_URI']."'><img src='images/".$sort_items_record['itemImageName']."' alt='' class='allitemsimage'><br>" . $sort_items_record['itemName'] . " ";
         echo $sort_items_record['itemPrice'];
         echo "</a></div>\n";
     }
