@@ -109,10 +109,13 @@ if(mysqli_connect_errno()){
         $sort_by = $_POST['sortby'];
     }
     else{
-        $sort_by = 'itemName ASC';
+        $sort_by = 'FRFName ASC';
     }
 
-    $all_campaigns_query = "SELECT * FROM items ORDER BY ".$sort_by;
+    $all_campaigns_query = "SELECT pages.PageID, pages.PageGoal, pages.PageImage, fundraisers.FRFName, fundraisers.FRLName
+                            FROM pages, fundraisers
+                            WHERE pages.FundraiserID = fundraisers.FundraiserID
+                            ORDER BY ".$sort_by;
     $all_campaigns_result = mysqli_query($con, $all_campaigns_query);
 
     while($all_campaigns_record = mysqli_fetch_assoc($all_campaigns_result)) {
