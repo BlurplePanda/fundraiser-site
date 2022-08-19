@@ -3,9 +3,6 @@ $con = mysqli_connect("localhost", "bootham", "richpatch76", "bootham_fundraiser
 if(mysqli_connect_errno()){
     echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
 
-$all_items_query = "SELECT itemID, itemName FROM items";
-$all_items_result = mysqli_query($con, $all_items_query);
-
 ?><!DOCTYPE html>
 
 <html lang='en'>
@@ -115,13 +112,13 @@ $all_items_result = mysqli_query($con, $all_items_query);
         $sort_by = 'itemName ASC';
     }
 
-    $sort_items_query = "SELECT * FROM items ORDER BY ".$sort_by;
-    $sort_items_result = mysqli_query($con, $sort_items_query);
+    $all_campaigns_query = "SELECT * FROM items ORDER BY ".$sort_by;
+    $all_campaigns_result = mysqli_query($con, $all_campaigns_query);
 
-    while($sort_items_record = mysqli_fetch_assoc($sort_items_result)) {
+    while($all_campaigns_record = mysqli_fetch_assoc($all_campaigns_result)) {
         echo "<div class='item'>";
-        echo "<p><a href='campaign.php?id=".$sort_items_record['itemID']."&fromurl=".$_SERVER['REQUEST_URI']."'><img src='images/".$sort_items_record['itemImageName']."' alt='' class='allitemsimage'><br>" . $sort_items_record['itemName'] . " ";
-        echo $sort_items_record['itemPrice'];
+        echo "<p><a href='campaign.php?id=".$all_campaigns_record['itemID']."&fromurl=".$_SERVER['REQUEST_URI']."'><img src='images/".$all_campaigns_record['itemImageName']."' alt='' class='allitemsimage'><br>" . $all_campaigns_record['itemName'] . " ";
+        echo $all_campaigns_record['itemPrice'];
         echo "</a></div>\n";
     }
     ?></div>
