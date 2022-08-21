@@ -28,7 +28,6 @@ if(mysqli_connect_errno()){
 <main>
     <h1>Campaigns</h1>
     <h2> Search </h2>
-    <div class='searches'>
     <div class='search'>
     <!--name/phrase search-->
     <form action='campaignlist.php' method='post'>
@@ -59,39 +58,6 @@ if(mysqli_connect_errno()){
         }
     }
     ?></div>
-    <div class='search'>
-    <!--item type search-->
-    <form name='category_form' id='category_form' method='post'>
-        <label for='category'> Search by category </label><br>
-        <select id='category' name='category'>
-            <!--options-->
-            <option <?php if(isset($_POST['category']) && $_POST['category']=='SV'){echo "selected ";}?>value='SV'>Savoury</option>
-            <option <?php if(isset($_POST['category']) && $_POST['category']=='SW'){echo "selected ";}?>value='SW'>Sweet</option>
-            <option <?php if(isset($_POST['category']) && $_POST['category']=='CD'){echo "selected ";}?>value='CD'>Cold drinks</option>
-            <option <?php if(isset($_POST['category']) && $_POST['category']=='HD'){echo "selected ";}?>value='HD'>Hot drinks</option>
-            <option <?php if(isset($_POST['category']) && $_POST['category']=='FT'){echo "selected ";}?>value='FT'>Fruit</option>
-        </select>
-
-        <input type='submit' value='View category'>
-    </form>
-    <br>
-    <?php
-    if(isset($_POST['category'])) {
-        $type_query = "SELECT * FROM items WHERE typeID = '".$_POST['category']."' ORDER BY itemName";
-        $type_result = mysqli_query($con, $type_query);
-        $type_item_count = mysqli_num_rows($type_result);
-        if($type_item_count==0) {
-            echo "There were no search results!";
-        }
-        else {
-            while($type_record = mysqli_fetch_array($type_result)) {
-                echo "<a href='campaign.php?id=".$type_record['itemID']."'><img src='images/".$type_record['itemImageName']."' alt='' class='searchitemimage'>" .$type_record ['itemName']."</a>";
-                echo "<br>";
-            }
-        }
-
-    }
-    ?></div></div>
 
     <h2> All Campaigns</h2>
     <form name='sort_form' id='sort_form' method='post'>
