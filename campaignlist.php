@@ -64,10 +64,10 @@ if(mysqli_connect_errno()){
         <label for='sortby'> Sort by: </label>
         <select id='sortby' name='sortby'>
             <!--options-->
-            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='itemName ASC'){echo "selected ";}?>value='itemName ASC'>Name (A-Z)</option>
-            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='itemName DESC'){echo "selected ";}?>value='itemName DESC'>Name (Z-A)</option>
-            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='itemPrice ASC'){echo "selected ";}?>value='itemPrice ASC'>Price (low to high)</option>
-            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='itemPrice DESC'){echo "selected ";}?>value='itemPrice DESC'>Price (high to low)</option>
+            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='FRFName ASC'){echo "selected ";}?>value='FRFName ASC'>Name (A-Z)</option>
+            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='FRFName DESC'){echo "selected ";}?>value='FRFName DESC'>Name (Z-A)</option>
+            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='PageGoal ASC'){echo "selected ";}?>value='PageGoal ASC'>Goal size (low to high)</option>
+            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='PageGoal DESC'){echo "selected ";}?>value='PageGoal DESC'>Goal size (high to low)</option>
         </select>
 
         <input type='submit' value='Click to sort'>
