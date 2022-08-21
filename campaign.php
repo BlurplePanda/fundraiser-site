@@ -15,7 +15,7 @@ if(mysqli_connect_errno()){
 
 <body>
 <header>
-    <img src='' alt='Rundfaise logo' class='center'>
+    <img src='images/rundfaise-logo.png' alt='Rundfaise logo and text: Donate - Support - Fundraise' class='center'>
     <nav>
         <a href='index.php' class='button'> Home </a>
         <a href='campaignlist.php' class='button'> Campaigns </a>
