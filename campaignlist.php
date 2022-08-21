@@ -123,9 +123,9 @@ if(mysqli_connect_errno()){
     $all_campaigns_result = mysqli_query($con, $all_campaigns_query);
 
     while($all_campaigns_record = mysqli_fetch_assoc($all_campaigns_result)) {
-        echo "<div class='item'>";
-        echo "<p><a href='campaign.php?id=".$all_campaigns_record['itemID']."&fromurl=".$_SERVER['REQUEST_URI']."'><img src='images/".$all_campaigns_record['itemImageName']."' alt='' class='allitemsimage'><br>" . $all_campaigns_record['itemName'] . " ";
-        echo $all_campaigns_record['itemPrice'];
+        echo "<div class='campaign'>";
+        echo "<p><a href='campaign.php?id=".$all_campaigns_record['PageID']."&fromurl=".$_SERVER['REQUEST_URI']."'><img src='images/".$all_campaigns_record['PageImage']."' alt='' class='allcampaignsimage'><br>".$all_campaigns_record['FRFName']." ".$all_campaigns_record['FRLName']."'s fundraiser<br>";
+        echo $all_campaigns_record['PageGoal'];
         echo "</a></div>\n";
     }
     ?></div>
