@@ -16,7 +16,7 @@ if(mysqli_connect_errno()){
 <body>
 
 <header>
-    <img src='' alt='Rundfaise logo' class='center'>
+    <img src='images/rundfaise-logo.png' alt='Rundfaise logo' class='center'>
     <nav>
         <a href='index.php' class='button'> Home </a>
         <a href='campaignlist.php' class='button' id='current'> Campaigns </a>
@@ -106,7 +106,7 @@ if(mysqli_connect_errno()){
 
         <input type='submit' value='Click to sort'>
     </form>
-    <div class='all-items-container'>
+    <div class='all-campaigns-container'>
     <?php
 
     if(isset($_POST['sortby'])){
