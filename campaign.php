@@ -27,35 +27,28 @@ if(mysqli_connect_errno()){
 <main>
     <h1> Campaign Information </h1>
 
-    <div class='item-info'>
+    <div class='campaign-info'>
     <?php
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $this_item_query = "SELECT items.*, typeName FROM items, itemtypes WHERE itemID = '".$id."' AND items.typeID = itemtypes.typeID";
-        $this_item_result = mysqli_query($con, $this_item_query);
-        $this_item_record = mysqli_fetch_assoc($this_item_result);
-        echo "<div class='itemimage'><img src='images/".$this_item_record['itemImageName']."' class='singleitemimg' alt=''></div>";
-        echo "<div class='itemtext'><p class='itemtext'>Item Name: ".$this_item_record['itemName'];
-        echo "<p class='itemtext'>Item description: ".$this_item_record['itemDescription'];
-        echo "<p class='itemtext'>Type: ".$this_item_record['typeName'];
-        echo "<p class='itemtext'>Cost: $".$this_item_record['itemPrice'];
-        echo "<p class='itemtext'>Availability: ";
-        if($this_item_record['itemInStock']==1){
-            echo "In stock!";
-        }
-        else{
-            echo "Not in stock, sorry :(";
-        }
+        $this_campaign_query = "SELECT pages.*, fundraisers.FRFName, fundraisers.FRLName, IFNULL(SUM(pagepledges.PledgeAmount), 0) as PledgeTotal
+                            FROM (SELECT PageID, PledgeAmount FROM pledges WHERE PageID = ".$id.") as pagepledges, pages, fundraisers
+                            WHERE pages.PageID = ".$id." AND pages.FundraiserID = fundraisers.FundraiserID";
+        $this_campaign_result = mysqli_query($con, $this_campaign_query);
+        $this_campaign_record = mysqli_fetch_assoc($this_campaign_result);
+        echo "<div class='campaignimage'><img src='images/".$this_campaign_record['PageImage']."' class='singlecampaignimg' alt=''></div>";
+        echo "<div class='campaigntext'><p class='campaigntext'>".$this_campaign_record['FRFName']." ".$this_campaign_record['FRLName']."'s fundraising campaign";
+        echo "<p class='campaigntext'>Fundraising for: ".$this_campaign_record['ChosenCharity'];
+        echo "<p class='campaigntext'>Description: ".$this_campaign_record['PageDesc'];
+        echo "<p class='campaigntext'>Amount raised: $".$this_campaign_record['PledgeTotal']."/$".$this_campaign_record['PageGoal'];
         echo "</div></div>";
         echo "<p><a href=".$_GET['fromurl'].">Back to previous page</a>";
-
-
     }
 
     else {
-        echo "<img src='images/error.png' alt='Cartoon of generic error message' class='itemimage' width='150'>";
-        echo "<p class='itemtext'>You have to choose an item!";
+        echo "<img src='images/error.png' alt='Cartoon of generic error message' class='campaignimage' width='150'>";
+        echo "<p class='campaigntext'>You have to choose a campaign!";
     }
 
 
