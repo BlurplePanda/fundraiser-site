@@ -40,7 +40,11 @@ if(mysqli_connect_errno()){
     <?php
     if(isset($_POST['search'])) {
         $search = $_POST['search'];
-        $search_query = "SELECT * FROM items WHERE itemName LIKE '%$search%' ORDER BY itemName";
+        $search_query = "SELECT pages.PageID, pages.PageGoal, pages.PageImage, fundraisers.FRFName, fundraisers.FRLName
+                         FROM pages, fundraisers
+                         WHERE pages.FundraiserID = fundraisers.FundraiserID
+                         AND (fundraisers.FRFName LIKE '%".$search."%' OR fundraisers.FRLName LIKE '%".$search"%')*
+                         ORDER BY fundraisers.FRFName";
         $search_result = mysqli_query($con, $search_query);
         $count = mysqli_num_rows($search_result);
 
