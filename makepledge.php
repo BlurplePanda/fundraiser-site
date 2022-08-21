@@ -26,8 +26,8 @@ if(mysqli_connect_errno()){
 <main>
     <h1>Make a pledge</h1>
     <?php
-    if(isset($_POST['campaign'])) {
-        $campaign = $_POST['campaign'];
+    if(isset($_GET['campaign'])) {
+        $campaign = $_GET['campaign'];
         $which_campaign_query = "SELECT * FROM fundraisers WHERE fundraisers.FundraiserID =".$campaign;
         $which_campaign_result = mysqli_query($con, $which_campaign_query);
         $which_campaign_record = mysqli_fetch_assoc($which_campaign_result);
