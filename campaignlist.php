@@ -31,7 +31,7 @@ if(mysqli_connect_errno()){
     <div class='searches'>
     <div class='search'>
     <!--name/phrase search-->
-    <form action='menu.php' method='post'>
+    <form action='campaignlist.php' method='post'>
         <label for='search'> Search by name </label><br>
         <input type='text' name='search' id='search'>
         <input type='submit' name='submit' value='Search'>
@@ -43,7 +43,7 @@ if(mysqli_connect_errno()){
         $search_query = "SELECT pages.PageID, pages.PageGoal, pages.PageImage, fundraisers.FRFName, fundraisers.FRLName
                          FROM pages, fundraisers
                          WHERE pages.FundraiserID = fundraisers.FundraiserID
-                         AND (fundraisers.FRFName LIKE '%".$search."%' OR fundraisers.FRLName LIKE '%".$search"%')*
+                         AND (fundraisers.FRFName LIKE '%".$search."%' OR fundraisers.FRLName LIKE '%".$search."%')
                          ORDER BY fundraisers.FRFName";
         $search_result = mysqli_query($con, $search_query);
         $count = mysqli_num_rows($search_result);
@@ -53,7 +53,7 @@ if(mysqli_connect_errno()){
         }
         else {
             while($row = mysqli_fetch_array($search_result)) {
-                echo "<a href='campaign.php?id=".$row['itemID']."'><img src='images/".$row['itemImageName']."' alt='' class='searchitemimage'>" .$row ['itemName']."</a>";
+                echo "<a href='campaign.php?id=".$row['PageID']."'><img src='images/".$row['PageImage']."' alt='' class='searchcampaignimage'>" .$row ['FRFName']." ".$row['FRLName']."'s fundraiser</a>";
                 echo "<br>";
             }
         }
