@@ -31,7 +31,7 @@ if(mysqli_connect_errno()){
         $which_campaign_query = "SELECT * FROM fundraisers WHERE fundraisers.FundraiserID =".$campaign;
         $which_campaign_result = mysqli_query($con, $which_campaign_query);
         $which_campaign_record = mysqli_fetch_assoc($which_campaign_result);
-    echo "<p>You have chosen to make a pledge to: ".$which_campaign_record['FRFName']." ".$which_campaign_record['FRLName']."</p>";
+        echo "<p>You have chosen to make a pledge to: ".$which_campaign_record['FRFName']." ".$which_campaign_record['FRLName']."</p>";
 
     }
     else {

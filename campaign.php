@@ -43,7 +43,7 @@ if(mysqli_connect_errno()){
         echo "<p class='campaigntext'>Description: ".$this_campaign_record['PageDesc'];
         echo "<p class='campaigntext'>Amount raised: $".$this_campaign_record['PledgeTotal']."/$".$this_campaign_record['PageGoal'];
         echo "</div></div>";
-        echo "<p><a href='makepledge.php?campaign=".$id."'>Make a pledge</a>"
+        echo "<p><a href='makepledge.php?campaign=".$id."'>Make a pledge</a>";
         echo "<p><a href=".$_GET['fromurl'].">Back to previous page</a>";
     }
 
