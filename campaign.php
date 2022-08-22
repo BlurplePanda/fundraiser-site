@@ -43,6 +43,21 @@ if(mysqli_connect_errno()){
         echo "<p class='campaigntext'>Description: ".$this_campaign_record['PageDesc'];
         echo "<p class='campaigntext'>Amount raised: $".$this_campaign_record['PledgeTotal']."/$".$this_campaign_record['PageGoal'];
         echo "</div></div>";
+
+        echo "<h2>Pledge to this campaign</h2>
+              <form action='insertpledge.php' method='post'>
+              <label for='fname'>First name:</label>
+              <input type='text' id='fname' name='fname'><br>
+              <label for='lname'>Last name:</label>
+              <input type='text' id='lname' name='lname'><br>
+              <label for='email'>Email address:</label>
+              <input type='email' id='email' name='email'><br>
+              <label for='amount'>Pledge amount:</label>
+              <input type='number' step='0.01' min='0' max='999999.99' id='amount' name='amount'>
+              <!-- Submit button -->
+              <input type='submit' value='Submit'>
+              </form><br>";
+
         echo "<p><a href=".$_GET['fromurl'].">Back to previous page</a>";
     }
 
