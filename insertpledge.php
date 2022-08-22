@@ -25,20 +25,7 @@ if(mysqli_connect_errno()){
 
 <main>
     <h1>Make a pledge</h1>
-    <?php
-    if(isset($_GET['campaign'])) {
-        $campaign = $_GET['campaign'];
-        $which_campaign_query = "SELECT * FROM fundraisers WHERE fundraisers.FundraiserID =".$campaign;
-        $which_campaign_result = mysqli_query($con, $which_campaign_query);
-        $which_campaign_record = mysqli_fetch_assoc($which_campaign_result);
-        echo "<p>You have chosen to make a pledge to: ".$which_campaign_record['FRFName']." ".$which_campaign_record['FRLName']."</p>";
-
-    }
-    else {
-        echo "<img src='images/error.png' alt='Cartoon of generic error message' class='campaignimage' width='150'>";
-        echo "<p class='campaigntext'>You have to choose a campaign!";
-    }
-    ?>
+    
 
 
 </main>
