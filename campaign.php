@@ -44,6 +44,7 @@ if(mysqli_connect_errno()){
         echo "<p class='campaigntext'>Amount raised: $".$this_campaign_record['PledgeTotal']."/$".$this_campaign_record['PageGoal'];
         echo "</div></div>";
 
+        $currenturl = $_SERVER['REQUEST_URI'];
         echo "<h2>Pledge to this campaign</h2>
               <form action='insertpledge.php' method='post'>
               <label for='fname'>First name:</label>
@@ -55,7 +56,7 @@ if(mysqli_connect_errno()){
               <label for='amount'>Pledge amount:</label>
               <input type='number' step='0.01' min='0' max='999999.99' id='amount' name='amount'>
               <input type='hidden' id='page' name='page' value='$id'>
-              <input type='hidden' id='url' name='url' value='$_SERVER['REQUEST_URI']'>
+              <input type='hidden' id='url' name='url' value='$currenturl'>
               <!-- Submit button -->
               <input type='submit' value='Submit'>
               </form><br>";
