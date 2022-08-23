@@ -55,6 +55,7 @@ if(mysqli_connect_errno()){
               <label for='amount'>Pledge amount:</label>
               <input type='number' step='0.01' min='0' max='999999.99' id='amount' name='amount'>
               <input type='hidden' id='page' name='page' value='$id'>
+              <input type='hidden' id='url' name='url' value='$_SERVER['REQUEST_URI']'>
               <!-- Submit button -->
               <input type='submit' value='Submit'>
               </form><br>";
