@@ -13,7 +13,7 @@ $fromurl = $_POST['url'];
 $insert_donor = "INSERT INTO donors (DonorFName, DonorLName, DonorEmail) VALUES ('$fname', '$lname', '$email')";
 if(mysqli_query($con, $insert_donor)){
     $donorinsert = true;
-    $get_inserted_id_query = "SELECT DonorID FROM donors WHERE DonorFName LIKE '$fname' AND DonorLName LIKE '$lname' AND DonorEmail LIKE '$email'";
+    $get_inserted_id_query = "SELECT DonorID FROM donors WHERE DonorFName = '$fname' AND DonorLName = '$lname' AND DonorEmail = '$email'";
     $get_inserted_id_result = mysqli_query($con, $get_inserted_id_query);
     $get_inserted_id_record = mysqli_fetch_assoc($get_inserted_id_result);
     $id = $get_inserted_id_record['DonorID'];
