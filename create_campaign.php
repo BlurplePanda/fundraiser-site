@@ -30,7 +30,7 @@ if(mysqli_connect_errno()){
         <label for='charity'>Charity:</label>
         <input type='text' id='charity' name='charity'><br>
         <label for='desc'>Campaign description:</label>
-        <textarea id='desc' name='desc'></textarea>
+        <textarea id='desc' name='desc'></textarea><br>
         <label for='img'>Image:</label>
         <input type='image' id='img' name='img'><br>
         <label for='goal'>Campaign goal:</label>
