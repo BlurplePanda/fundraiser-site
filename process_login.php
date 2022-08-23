@@ -44,7 +44,7 @@ $pw = $_POST['password'];
     }
     else {
         echo "<h1>Uh oh!</h1>
-              <p>Incorrect username or password. Redirecting...";
+              <p>Incorrect email or password. Redirecting...";
         header("refresh:2, url=login.php");
     }
     ?>
