@@ -32,7 +32,7 @@ if(mysqli_connect_errno()){
         <label for='desc'>Campaign description:</label>
         <textarea id='desc' name='desc'></textarea><br>
         <label for='img'>Image:</label>
-        <input type='image' id='img' name='img'><br>
+        <input type='file' id='img' name='img' accept='image/*'><br>
         <label for='goal'>Campaign goal:</label>
         <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal'>
         <!-- Submit button -->
