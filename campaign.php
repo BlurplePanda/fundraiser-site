@@ -18,7 +18,7 @@ if(mysqli_connect_errno()){
     <img src='images/rundfaise-logo.png' alt='Rundfaise logo and text: Donate - Support - Fundraise' class='center'>
     <nav>
         <a href='index.php' class='button'> Home </a>
-        <a href='campaignlist.php' class='button'> Campaigns </a>
+        <a href='campaign_list.php' class='button'> Campaigns </a>
         <a href='specials.php' class='button'> Specials </a>
 
     </nav>
@@ -46,7 +46,7 @@ if(mysqli_connect_errno()){
 
         $currenturl = $_SERVER['REQUEST_URI'];
         echo "<h2>Pledge to this campaign</h2>
-              <form action='insertpledge.php' method='post'>
+              <form action='insert_pledge.php' method='post'>
               <label for='fname'>First name:</label>
               <input type='text' id='fname' name='fname'><br>
               <label for='lname'>Last name:</label>

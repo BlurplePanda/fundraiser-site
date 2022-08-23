@@ -19,7 +19,7 @@ if(mysqli_connect_errno()){
     <img src='images/rundfaise-logo.png' alt='Rundfaise logo and text: Donate - Support - Fundraise' class='center'>
     <nav>
         <a href='index.php' class='button'> Home </a>
-        <a href='campaignlist.php' class='button' id='current'> Campaigns </a>
+        <a href='campaign_list.php' class='button' id='current'> Campaigns </a>
         <a href='specials.php' class='button'> Specials </a>
 
     </nav>
@@ -30,7 +30,7 @@ if(mysqli_connect_errno()){
     <h2> Search </h2>
     <div class='search'>
     <!--name/phrase search-->
-    <form action='campaignlist.php' method='post'>
+    <form action='campaign_list.php' method='post'>
         <label for='search'> Search by name </label><br>
         <input type='text' name='search' id='search'>
         <input type='submit' name='submit' value='Search'>
