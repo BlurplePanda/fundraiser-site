@@ -27,8 +27,7 @@ if(mysqli_connect_errno()){
       <main>
           <h1>Rundfaise</h1>
           <p>Fundraiser platform for various charities blah blah blah :D</p>
-          <img id='home-page-image' src='' alt='A cartoon hand holding/giving a love heart'>
-
+          <img id='home-page-image' src='images/givinglove.png' alt='A cartoon hand holding/giving a love heart'>
 
       </main>
    </body>
