@@ -42,6 +42,7 @@ if(mysqli_connect_errno()){
         echo "<p class='campaigntext'>Fundraising for: ".$this_campaign_record['ChosenCharity'];
         echo "<p class='campaigntext'>Description: ".$this_campaign_record['PageDesc'];
         echo "<p class='campaigntext'>Amount raised: $".$this_campaign_record['PledgeTotal']."/$".$this_campaign_record['PageGoal'];
+        echo "<img border='0' src='thermometer.php?Current=".$this_campaign_record['PledgeTotal']."&Goal=".$this_campaign_record['PageGoal']."&Width=300&Height=75&Font=2'>";
         echo "</div></div>";
 
         $currenturl = $_SERVER['REQUEST_URI'];
