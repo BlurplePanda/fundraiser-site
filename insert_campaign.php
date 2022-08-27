@@ -3,6 +3,16 @@ $con = mysqli_connect("localhost", "bootham", "richpatch76", "bootham_fundraiser
 if(mysqli_connect_errno()){
     echo "Failed to connect to MySQL:".mysqli_connect_error(); die();}
 
+if($_SERVER['REQUEST_METHOD']=='POST') {
+    $file = $_FILES['img'];
+    $filename = $file['name'];
+    $filetmpname = $file['tmp_name'];
+    $filesize = $file['size'];
+    $fileerror = $file['error'];
+    $fileext = strtolower(end(explode('.', $filename)));
+    $filenamenew = uniqid('', true).".".$fileext;
+    move_uploaded_file($filetmpname, 'images/'.$filenamenew);
+}
 ?><!DOCTYPE html>
 
 <html lang='en'>
@@ -25,19 +35,7 @@ if(mysqli_connect_errno()){
 </header>
 
 <main>
-    <h1>Create a fundraising campaign</h1>
-    <form action='insert_campaign.php' method='post' enctype='multipart/form-data'>
-        <label for='charity'>Charity:</label>
-        <input type='text' id='charity' name='charity'><br>
-        <label for='desc'>Campaign description:</label>
-        <textarea id='desc' name='desc'></textarea><br>
-        <label for='img'>Image:</label>
-        <input type='file' id='img' name='img' accept='image/*'><br>
-        <label for='goal'>Campaign goal:</label>
-        <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal'>
-        <!-- Submit button -->
-        <input type='submit' value='Submit'>
-    </form><br>
+
 </main>
 </body>
 
