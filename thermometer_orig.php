@@ -1,5 +1,6 @@
 <?php
 /*<!-- https://php.happycodings.com/graphics/code62.html
+Replaced some parameters with new variable names for clarity
 
 Thermometer  Goal Graph
 
@@ -44,7 +45,7 @@ function thermGraph( $current, $goal, $width, $height, $font ) {
     imagearc($image, $bulbcenterx, $bulbcentery, $bulbwidth, $bulbheight, 0, 360, $fg);
     ImageFillToBorder($image, $bulbcenterx, $bulbcentery, $fg, $fg);
 
-    //  Build "Bottom level
+    //  Build "Bottom level" - the very start of the bar (so that it is not weirdly circular and gappy)
     ImageFilledRectangle($image,
         $barleft,
         $barbottom,
