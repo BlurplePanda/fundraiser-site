@@ -1,4 +1,4 @@
-<?php include 'connection.php'?><!DOCTYPE html>
+<?php include 'session_connection.php'?><!DOCTYPE html>
 
 <html lang='en'>
 
@@ -10,13 +10,7 @@
 
 <body>
 <header>
-    <img src='images/rundfaise-logo.png' alt='Rundfaise logo and text: Donate - Support - Fundraise' class='center'>
-    <nav>
-        <a href='index.php' class='button' id='current'> Home </a>
-        <a href='campaign_list.php' class='button'> Campaigns </a>
-        <a href='login.php' class='button'> Log In </a>
-
-    </nav>
+    <?php include 'header.php'?>
 </header>
 
 <main>

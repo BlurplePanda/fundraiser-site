@@ -1,6 +1,5 @@
 <?php
-    session_start();
-include 'connection.php';
+include 'session_connection.php';
 
 $email = $_POST['email'];
 $pw = $_POST['password'];
@@ -16,13 +15,7 @@ $pw = $_POST['password'];
 
 <body>
 <header>
-    <img src='images/rundfaise-logo.png' alt='Rundfaise logo and text: Donate - Support - Fundraise' class='center'>
-    <nav>
-        <a href='index.php' class='button' id='current'> Home </a>
-        <a href='campaignlist.php' class='button'> Campaigns </a>
-        <a href='specials.php' class='button'> Specials </a>
-
-    </nav>
+    <?php include 'header.php'?>
 </header>
 
 <main>

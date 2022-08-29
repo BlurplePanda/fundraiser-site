@@ -1,5 +1,5 @@
 <?php
-$include 'connection.php';
+$include 'session_connection.php';
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
     $file = $_FILES['img'];
@@ -23,13 +23,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 
 <body>
 <header>
-    <img src='images/rundfaise-logo.png' alt='Rundfaise logo and text: Donate - Support - Fundraise' class='center'>
-    <nav>
-        <a href='index.php' class='button' id='current'> Home </a>
-        <a href='campaign_list.php' class='button'> Campaigns </a>
-        <a href='specials.php' class='button'> Specials </a>
-
-    </nav>
+    <?php include 'header.php'?>
 </header>
 
 <main>
