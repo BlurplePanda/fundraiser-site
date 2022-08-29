@@ -1,16 +1,14 @@
 <?php
-$include 'session_connection.php';
+include 'session_connection.php';
 
-if($_SERVER['REQUEST_METHOD']=='POST') {
-    $file = $_FILES['img'];
-    $filename = $file['name'];
-    $filetmpname = $file['tmp_name'];
-    $filesize = $file['size'];
-    $fileerror = $file['error'];
-    $fileext = strtolower(end(explode('.', $filename)));
-    $filenamenew = uniqid('', true).".".$fileext;
-    move_uploaded_file($filetmpname, 'images/'.$filenamenew);
-}
+$charity = $_POST['charity'];
+$desc = $_POST['desc'];
+$img = $_POST['img'];
+$goal = $_POST['goal'];
+$fr_id = $_SESSION['user'];
+
+$insert_page = "INSERT INTO pages (FundraiserID, ChosenCharity, PageDesc, PageImage, PageGoal)
+                VALUES ('$fr_id', '$charity', '$desc', '$img', '$goal')";
 ?><!DOCTYPE html>
 
 <html lang='en'>
@@ -27,7 +25,14 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 </header>
 
 <main>
+    <?php
+    if(mysqli_query($con, $insert_page)){
+        echo "<h1>Page created!</h1>";
+        $newpageid = mysqli_insert_id($con);
+        header("refresh:2; url=campaign.php?id=".$newpageid."&fromurl=create_campaign.php");
+    }
 
+    ?>
 </main>
 </body>
 
