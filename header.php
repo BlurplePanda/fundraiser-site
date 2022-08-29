@@ -8,6 +8,11 @@
         <?php if($current == 'campaign_list.php'){
             echo " id='current'";}?>> Campaigns </a>
     <?php if(isset($_SESSION['user'])){
+        echo "<a href='create_campaign.php' class='button'";
+        if($current == 'create_campaign.php' or $current == 'insert_campaign.php'){
+            echo " id='current'"; }
+        echo "> Start a campaign </a>";
+
         echo "<a href='process_logout.php' class='button'";
         if($current == 'process_logout.php'){ echo " id='current'"; }
         echo "> Log out </a>";
