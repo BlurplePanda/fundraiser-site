@@ -8,15 +8,13 @@ $amount = $_POST['amount'];
 $page = $_POST['page'];
 $fromurl = $_POST['url'];
 
-$insert_donor = "INSERT INTO donors (DonorFName, DonorLName, DonorEmail) VALUES ('$fname', '$lname', '$email')";
+$insert_donor = "INSERT INTO donors (DonorFName, DonorLName, DonorEmail)
+                 VALUES ('$fname', '$lname', '$email')";
 if(mysqli_query($con, $insert_donor)){
     $donorinsert = true;
-    $get_inserted_id_query = "SELECT DonorID FROM donors WHERE DonorFName = '$fname' AND DonorLName = '$lname' AND DonorEmail = '$email'";
-    $get_inserted_id_result = mysqli_query($con, $get_inserted_id_query);
-    $get_inserted_id_record = mysqli_fetch_assoc($get_inserted_id_result);
-    $id = $get_inserted_id_record['DonorID'];
+    $newdonorid = mysqli_insert_id($con);
 
-    $insert_pledge = "INSERT INTO pledges (DonorID, PageID, PledgeAmount) VALUES ($id, $page, $amount)";
+    $insert_pledge = "INSERT INTO pledges (DonorID, PageID, PledgeAmount) VALUES ($newdonorid, $page, $amount)";
     if (!mysqli_query($con, $insert_pledge)){
         $pledgeinsert = false;
     }
