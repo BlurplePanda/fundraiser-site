@@ -34,8 +34,8 @@ if(!isset($_SESSION['user'])){
                     echo "<div class='campaign'>";
                     echo "<p><a href='campaign.php?id=" . $my_campaigns_record['PageID'] . "&fromurl=" . $_SERVER['REQUEST_URI'] . "'><img src='images/" . $my_campaigns_record['PageImage'] . "' alt='' class='allcampaignsimage'><br>" . $my_campaigns_record['FRFName'] . " " . $my_campaigns_record['FRLName'] . "'s fundraiser<br>";
                     echo $my_campaigns_record['PageGoal']."</a>";
-                    echo "<br><a href='edit_page.php?id=".$my_campaigns_record['PageID']."'>Edit</a>";
-                    echo "&nbsp&nbsp&nbsp&nbsp<a href=delete_page.php?id=".$my_campaigns_record['PageID']."'>Delete</a>";
+                    echo "<br><a href='edit_campaign.php?id=".$my_campaigns_record['PageID']."'>Edit</a>";
+                    echo "&nbsp&nbsp&nbsp&nbsp<a href=delete_campaign.php?id=".$my_campaigns_record['PageID']."'>Delete</a>";
                     echo "</div>\n";
                 } echo "</div>";
             }
