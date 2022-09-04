@@ -1,18 +1,21 @@
 <?php include 'session_connection.php';
+// Redirects if user is not logged in
 if(!isset($_SESSION['user'])){
     header("location:login_error_page.php");
 }
 $user = $_SESSION['user'];
-$page = $_GET['id'];
+$page = $_GET['id']; // Passed through url
 
 $this_campaign_query = "SELECT * FROM pages WHERE pages.PageID = '$page'";
 $this_campaign_result = mysqli_query($con, $this_campaign_query);
 $this_campaign_record = mysqli_fetch_assoc($this_campaign_result);
 
+// Redirects if user does not own the page being edited (since id can be changed in url)
 if($this_campaign_record['FundraiserID']!=$user) {
     header("location:account_error_page.php");
 }
 
+// For efficiency!
 $charity = $this_campaign_record['ChosenCharity'];
 $desc = $this_campaign_record['PageDesc'];
 $image = $this_campaign_record['PageImage'];
@@ -34,22 +37,29 @@ $goal = $this_campaign_record['PageGoal'];
 
 <main>
     <h1>Edit your campaign</h1>
+
+    <!-- Form to alter campaign details, default values are current details -->
     <form action='update_campaign.php' method='post'>
+
         <label for='charity'>Charity:</label>
         <input type='text' id='charity' name='charity' value='<?php echo $charity?>'><br>
 
         <label for='desc'>Campaign description:</label>
         <textarea id='desc' name='desc' ><?php echo $desc?></textarea><br>
 
-        <table><tr><td colspan='4'>Image:</td></tr>
+        <table><caption>Image:
             <?php
+            // If image not one of the four in radio group, warn user
             if ($image != "food.png"
                 && $image != "Public-health-icon.png"
                 && $image != "learn-icon.png"
                 && $image != "money.png") {
-                echo "<tr><td colspan='4'>Your image is not available to be re-chosen. If you wish to keep it the same, do not select a new image.</td></tr>";
-            } ?>
+                echo "<br>Your image is not available to be re-chosen. If you wish to keep it the same, do not select a new image.";
+            } ?></caption>
+
+            <!-- Each cell contains an option -->
             <tr><td><input type='radio' id='food' name='img' value='food.png' <?php
+                    // If the current image is "food.png", make the radio button checked by default
                     if ($image == "food.png") {
                         echo "checked";
                     }?>>
