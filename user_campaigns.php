@@ -1,6 +1,6 @@
 <?php include 'session_connection.php';
 if(!isset($_SESSION['user'])){
-    header("location:error_page.php");
+    header("location:login_error_page.php");
 } else{ $user = $_SESSION['user']; }
 ?><!DOCTYPE html>
 
