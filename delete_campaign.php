@@ -1,9 +1,25 @@
 <?php
 include 'session_connection.php';
 
-$page = $_GET['id']; // Passed through url
-$delete_page = "DELETE FROM pages WHERE PageID='$page'"; // Query to delete selected page
+// Redirects if user is not logged in
+if(!isset($_SESSION['user'])){
+    header("location:login_error_page.php");
+}
 
+$user = $_SESSION['user'];
+$page = $_GET['id']; // Passed through url
+
+$this_campaign_query = "SELECT FundraiserID FROM pages WHERE pages.PageID = '$page'";
+$this_campaign_result = mysqli_query($con, $this_campaign_query);
+$this_campaign_record = mysqli_fetch_assoc($this_campaign_result);
+
+// Redirects if user does not own the page being deleted (since id can be changed in url)
+if($this_campaign_record['FundraiserID']!=$user) {
+    header("location:account_error_page.php");
+}
+else {
+    $delete_page = "DELETE FROM pages WHERE PageID='$page'"; // Query to delete selected page
+}
 ?><!DOCTYPE html>
 
 <html lang='en'>
