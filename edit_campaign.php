@@ -34,7 +34,7 @@ $goal = $this_campaign_record['PageGoal'];
 
 <main>
     <h1>Edit your campaign</h1>
-    <form>
+    <form action='update_campaign.php' method='post'>
         <label for='charity'>Charity:</label>
         <input type='text' id='charity' name='charity' value='<?php echo $charity?>'><br>
 
