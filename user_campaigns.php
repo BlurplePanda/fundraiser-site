@@ -4,6 +4,7 @@
 if(!isset($_SESSION['user'])){
     header("location:login_error_page.php");
 } else{ $user = $_SESSION['user']; }
+
 ?><!DOCTYPE html>
 
 <html lang='en'>
@@ -12,6 +13,14 @@ if(!isset($_SESSION['user'])){
         <title> My campaigns - Rundfaise </title>
         <meta charset='utf-8'>
         <link rel='stylesheet' type='text/css' href='styles.css'>
+        <!--  -->
+        <script type='text/javascript'>
+            function openurl(newurl) {
+              if (confirm("Are you sure you want to delete this page?")) {
+                document.location = newurl;
+              }
+            }
+        </script>
     </head>
 
     <body>
@@ -44,7 +53,7 @@ if(!isset($_SESSION['user'])){
                     echo "<br><a href='edit_campaign.php?id=".$my_campaigns_record['PageID']."'>Edit</a>";
 
                     // Link to delete said campaign
-                    echo "&nbsp&nbsp&nbsp&nbsp<a href=delete_campaign.php?id=".$my_campaigns_record['PageID']."'>Delete</a>";
+                    echo "&nbsp&nbsp&nbsp&nbsp<a href=javascript:openurl('delete_campaign.php?id=".$my_campaigns_record['PageID']."')>Delete</a>";
 
                     echo "</div>\n";
                 } echo "</div>";
