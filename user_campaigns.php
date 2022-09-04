@@ -1,4 +1,6 @@
 <?php include 'session_connection.php';
+
+// Redirect if user not logged in
 if(!isset($_SESSION['user'])){
     header("location:login_error_page.php");
 } else{ $user = $_SESSION['user']; }
@@ -20,6 +22,7 @@ if(!isset($_SESSION['user'])){
         <main>
             <h1>My campaigns</h1>
             <?php
+            // Gets all of a specific fundraiser's campaigns
             $my_campaigns_query = "SELECT pages.PageID, pages.PageGoal, pages.PageImage, fundraisers.FRFName, fundraisers.FRLName
                         FROM pages, fundraisers
                         WHERE pages.FundraiserID = fundraisers.FundraiserID AND fundraisers.FundraiserID = '$user'
@@ -30,12 +33,19 @@ if(!isset($_SESSION['user'])){
                 echo "<p>You haven't started any campaigns yet!";
             } else {
                 echo "<div class='all-campaigns-container'>";
+                // For each campaign
                 while ($my_campaigns_record = mysqli_fetch_assoc($my_campaigns_result)) {
+                    // Display (the icon, name, and goal of) said campaign
                     echo "<div class='campaign'>";
                     echo "<p><a href='campaign.php?id=" . $my_campaigns_record['PageID'] . "&fromurl=" . $_SERVER['REQUEST_URI'] . "'><img src='images/" . $my_campaigns_record['PageImage'] . "' alt='' class='allcampaignsimage'><br>" . $my_campaigns_record['FRFName'] . " " . $my_campaigns_record['FRLName'] . "'s fundraiser<br>";
                     echo $my_campaigns_record['PageGoal']."</a>";
+
+                    // Link to edit said campaign
                     echo "<br><a href='edit_campaign.php?id=".$my_campaigns_record['PageID']."'>Edit</a>";
+
+                    // Link to delete said campaign
                     echo "&nbsp&nbsp&nbsp&nbsp<a href=delete_campaign.php?id=".$my_campaigns_record['PageID']."'>Delete</a>";
+
                     echo "</div>\n";
                 } echo "</div>";
             }
