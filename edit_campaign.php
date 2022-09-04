@@ -87,6 +87,9 @@ $goal = $this_campaign_record['PageGoal'];
         <label for='goal'>Campaign goal:</label>
         <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal' value='<?php echo $goal?>'>
 
+        <!-- Hidden input to pass the PageID -->
+        <input type='hidden' id='page' name='page' value='<?php echo $page?>'>
+
         <!-- Submit button -->
         <input type='submit' value='Submit'>
     </form>
