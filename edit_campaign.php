@@ -41,7 +41,14 @@ $goal = $this_campaign_record['PageGoal'];
         <label for='desc'>Campaign description:</label>
         <textarea id='desc' name='desc' ><?php echo $desc?></textarea><br>
 
-        <table><tr>Image:</tr>
+        <table><tr><td colspan='4'>Image:</td></tr>
+            <?php
+            if ($image != "food.png"
+                && $image != "Public-health-icon.png"
+                && $image != "learn-icon.png"
+                && $image != "money.png") {
+                echo "<tr><td colspan='4'>Your image is not available to be re-chosen. If you wish to keep it the same, do not select a new image.</td></tr>";
+            } ?>
             <tr><td><input type='radio' id='food' name='img' value='food.png' <?php
                     if ($image == "food.png") {
                         echo "checked";
