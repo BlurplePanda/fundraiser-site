@@ -55,6 +55,7 @@ $goal = $this_campaign_record['PageGoal'];
                 && $image != "learn-icon.png"
                 && $image != "money.png") {
                 echo "<br>Your image is not available to be re-chosen. If you wish to keep it the same, do not select a new image.";
+                echo "<input type='hidden' id='currimg' name='currimg' value='$image'>";
             } ?></caption>
 
             <!-- Each cell contains an option -->
