@@ -4,12 +4,19 @@ if(!isset($_SESSION['user'])){
 }
 $user = $_SESSION['user'];
 $page = $_GET['id'];
+
 $this_campaign_query = "SELECT * FROM pages WHERE pages.PageID = '$page'";
 $this_campaign_result = mysqli_query($con, $this_campaign_query);
 $this_campaign_record = mysqli_fetch_assoc($this_campaign_result);
+
 if($this_campaign_record['FundraiserID']!=$user) {
     header("location:account_error_page.php");
 }
+
+$charity = $this_campaign_record['ChosenCharity'];
+$desc = $this_campaign_record['PageDesc'];
+$image = $this_campaign_record['PageImage'];
+$goal = $this_campaign_record['PageGoal'];
 ?><!DOCTYPE html>
 
 <html lang='en'>
@@ -26,7 +33,46 @@ if($this_campaign_record['FundraiserID']!=$user) {
 </header>
 
 <main>
+    <h1>Edit your campaign</h1>
+    <form>
+        <label for='charity'>Charity:</label>
+        <input type='text' id='charity' name='charity' value='<?php echo $charity?>'><br>
 
+        <label for='desc'>Campaign description:</label>
+        <textarea id='desc' name='desc' ><?php echo $desc?></textarea><br>
+
+        <table><tr>Image:</tr>
+            <tr><td><input type='radio' id='food' name='img' value='food.png' <?php
+                    if ($image == "food.png") {
+                        echo "checked";
+                    }?>>
+                    <label for='food'><img src='images/food.png' class='choose-image'></label></td>
+
+                <td><input type='radio' id='health' name='img' value='Public-health-icon.png' <?php
+                    if ($image == "Public-health-icon.png") {
+                        echo "checked";
+                    }?>>
+                    <label for='health'><img src='images/Public-health-icon.png' class='choose-image'></label></td>
+
+                <td><input type='radio' id='education' name='img' value='learn-icon.png' <?php
+                    if ($image == "learn-icon.png") {
+                        echo "checked";
+                    }?>>
+                    <label for='education'><img src='images/learn-icon.png' class='choose-image'></label></td>
+
+                <td><input type='radio' id='money' name='img' value='money.png' <?php
+                    if ($image == "money.png") {
+                        echo "checked";
+                    }?>>
+                    <label for='money'><img src='images/money.png' class='choose-image'></label></td></tr>
+        </table>
+
+        <label for='goal'>Campaign goal:</label>
+        <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal' value='<?php echo $goal?>'>
+
+        <!-- Submit button -->
+        <input type='submit' value='Submit'>
+    </form>
 </main>
 </body>
 
