@@ -3,7 +3,11 @@ include 'session_connection.php';
 
 $charity = $_POST['charity'];
 $desc = $_POST['desc'];
-$img = $_POST['img'];
+if(isset($_POST['img'])){
+    $img = $_POST['img'];
+} else {
+    $img = $_POST['currimg'];
+}
 $goal = $_POST['goal'];
 $page = $_POST['page'];
 
