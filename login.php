@@ -26,6 +26,8 @@
         <input type='submit' value='Log in'>
     </form>
 
+    <p>Don't have an account? Click <a href='create_account.php'>here.</a></p>
+
 </main>
 </body>
 
