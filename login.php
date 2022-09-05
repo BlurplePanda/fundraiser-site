@@ -1,4 +1,7 @@
-<?php include 'session_connection.php'?><!DOCTYPE html>
+<?php include 'session_connection.php';
+if(isset($_SESSION['user'])){
+    header("location:logout_error_page.php");
+}?><!DOCTYPE html>
 
 <html lang='en'>
 
