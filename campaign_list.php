@@ -53,6 +53,8 @@
         <label for='sortby'> Sort by: </label>
         <select id='sortby' name='sortby'>
             <!--options-->
+            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='PageName ASC'){echo "selected ";}?>value='PageName ASC'>Campaign title (A-Z)</option>
+            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='PageName DESC'){echo "selected ";}?>value='PageName DESC'>Campaign title (Z-A)</option>
             <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='FRFName ASC'){echo "selected ";}?>value='FRFName ASC'>Fundraiser name (A-Z)</option>
             <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='FRFName DESC'){echo "selected ";}?>value='FRFName DESC'>Fundraiser name (Z-A)</option>
             <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='PageGoal ASC'){echo "selected ";}?>value='PageGoal ASC'>Goal size (low to high)</option>
