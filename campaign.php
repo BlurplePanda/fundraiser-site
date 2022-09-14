@@ -14,9 +14,6 @@
 </header>
 
 <main>
-    <h1> Campaign Information </h1>
-
-    <div class='campaign-info'>
     <?php
 
     if(isset($_GET['id'])){
@@ -26,8 +23,11 @@
                             WHERE pages.PageID = ".$id." AND pages.FundraiserID = fundraisers.FundraiserID";
         $this_campaign_result = mysqli_query($con, $this_campaign_query);
         $this_campaign_record = mysqli_fetch_assoc($this_campaign_result);
+        echo "<h1>".$this_campaign_record['PageName']."</h1>";
+        echo "<div class='campaign-info'>";
         echo "<div class='campaignimage'><img src='images/".$this_campaign_record['PageImage']."' class='singlecampaignimg' alt=''></div>";
-        echo "<div class='campaigntext'><p class='campaigntext'>".$this_campaign_record['FRFName']." ".$this_campaign_record['FRLName']."'s fundraising campaign";
+        echo "<div class='campaigntext'>";
+        echo "<p class='campaigntext'>Fundraiser / campaign organiser: ".$this_campaign_record['FRFName']." ".$this_campaign_record['FRLName']; // https://english.stackexchange.com/a/548055
         echo "<p class='campaigntext'>Fundraising for: ".$this_campaign_record['ChosenCharity'];
         echo "<p class='campaigntext'>Description: ".$this_campaign_record['PageDesc'];
         echo "<p class='campaigntext'>Amount raised: $".$this_campaign_record['PledgeTotal']."/$".$this_campaign_record['PageGoal'];
