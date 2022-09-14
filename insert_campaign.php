@@ -27,9 +27,15 @@ $insert_page = "INSERT INTO pages (FundraiserID, ChosenCharity, PageDesc, PageIm
 <main>
     <?php
     if(mysqli_query($con, $insert_page)){
-        echo "<h1>Page created!</h1>";
+        echo "<h1>Page created!</h1>
+              <p>Redirecting...</p>";
         $newpageid = mysqli_insert_id($con);
-        header("refresh:2; url=campaign.php?id=".$newpageid."&fromurl=create_campaign.php");
+        header("refresh:1; url=campaign.php?id=".$newpageid."&fromurl=create_campaign.php");
+    }
+    else {
+        echo "<h1>Uh oh!</h1>
+              <p>Looks like that didn't work. Please try again once redirected.";
+        header("refresh:2; url=create_campaign.php");
     }
 
     ?>
