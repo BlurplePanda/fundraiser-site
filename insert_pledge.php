@@ -26,7 +26,7 @@ else {
     $donorinsert = false;
 }
 
-header("refresh: 3; url=$fromurl");
+header("refresh: 2; url=$fromurl");
 ?><!DOCTYPE html>
 
 <html lang='en'>
@@ -52,6 +52,7 @@ header("refresh: 3; url=$fromurl");
         echo "<h1>Uh oh!</h1>
               <p>Looks like that didn't work. Please try again.";
     }
+    echo "<p>Redirecting...";
     ?>
 </main>
 </body>
