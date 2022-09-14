@@ -53,8 +53,8 @@
         <label for='sortby'> Sort by: </label>
         <select id='sortby' name='sortby'>
             <!--options-->
-            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='FRFName ASC'){echo "selected ";}?>value='FRFName ASC'>Name (A-Z)</option>
-            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='FRFName DESC'){echo "selected ";}?>value='FRFName DESC'>Name (Z-A)</option>
+            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='FRFName ASC'){echo "selected ";}?>value='FRFName ASC'>Fundraiser name (A-Z)</option>
+            <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='FRFName DESC'){echo "selected ";}?>value='FRFName DESC'>Fundraiser name (Z-A)</option>
             <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='PageGoal ASC'){echo "selected ";}?>value='PageGoal ASC'>Goal size (low to high)</option>
             <option <?php if(isset($_POST['sortby']) && $_POST['sortby']=='PageGoal DESC'){echo "selected ";}?>value='PageGoal DESC'>Goal size (high to low)</option>
         </select>
@@ -71,7 +71,7 @@
         $sort_by = 'FRFName ASC';
     }
 
-    $all_campaigns_query = "SELECT pages.PageID, pages.PageGoal, pages.PageImage, fundraisers.FRFName, fundraisers.FRLName
+    $all_campaigns_query = "SELECT pages.PageID, pages.PageGoal, pages.PageImage, pages.PageName, fundraisers.FRFName, fundraisers.FRLName
                             FROM pages, fundraisers
                             WHERE pages.FundraiserID = fundraisers.FundraiserID
                             ORDER BY ".$sort_by;
@@ -79,7 +79,10 @@
 
     while($all_campaigns_record = mysqli_fetch_assoc($all_campaigns_result)) {
         echo "<div class='campaign'>";
-        echo "<p><a href='campaign.php?id=".$all_campaigns_record['PageID']."&fromurl=".$_SERVER['REQUEST_URI']."'><img src='images/".$all_campaigns_record['PageImage']."' alt='' class='allcampaignsimage'><br>".$all_campaigns_record['FRFName']." ".$all_campaigns_record['FRLName']."'s fundraiser<br>";
+        echo "<p><a href='campaign.php?id=".$all_campaigns_record['PageID']."&fromurl=".$_SERVER['REQUEST_URI']."'>
+              <img src='images/".$all_campaigns_record['PageImage']."' alt='' class='allcampaignsimage'><br>";
+        echo $all_campaigns_record['PageName']."<br>";
+        echo $all_campaigns_record['FRFName']." ".$all_campaigns_record['FRLName']."<br>";
         echo $all_campaigns_record['PageGoal'];
         echo "</a></div>\n";
     }
