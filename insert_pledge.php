@@ -10,19 +10,17 @@ $fromurl = $_POST['url'];
 
 $insert_donor = "INSERT INTO donors (DonorFName, DonorLName, DonorEmail)
                  VALUES ('$fname', '$lname', '$email')";
-if(mysqli_query($con, $insert_donor)){
+if (mysqli_query($con, $insert_donor)) {
     $donorinsert = true;
     $newdonorid = mysqli_insert_id($con);
 
     $insert_pledge = "INSERT INTO pledges (DonorID, PageID, PledgeAmount) VALUES ($newdonorid, $page, $amount)";
-    if (!mysqli_query($con, $insert_pledge)){
+    if (!mysqli_query($con, $insert_pledge)) {
         $pledgeinsert = false;
-    }
-    else {
+    } else {
         $pledgeinsert = true;
     }
-}
-else {
+} else {
     $donorinsert = false;
 }
 
@@ -39,16 +37,15 @@ header("refresh: 2; url=$fromurl");
 
 <body>
 <header>
-    <?php include 'header.php'?>
+    <?php include 'header.php' ?>
 </header>
 
 <main>
     <?php
-    if($pledgeinsert && $donorinsert) {
+    if ($pledgeinsert && $donorinsert) {
         echo "<h1>Success!</h1>
               <p>Pledge successfully made :)";
-    }
-    else {
+    } else {
         echo "<h1>Uh oh!</h1>
               <p>Looks like that didn't work. Please try again.";
     }

@@ -11,13 +11,13 @@
 
 <body>
 <header>
-    <?php include 'header.php'?>
+    <?php include 'header.php' ?>
 </header>
 
 <main>
     <h1>Oops!</h1>
     <p>You have to log in to access that page.</p>
-    <?php header("refresh:2, url=login.php")?>
+    <?php header("refresh:2, url=login.php") ?>
 </main>
 </body>
 

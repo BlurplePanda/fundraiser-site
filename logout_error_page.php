@@ -11,13 +11,13 @@
 
 <body>
 <header>
-    <?php include 'header.php'?>
+    <?php include 'header.php' ?>
 </header>
 
 <main>
     <h1>Oops!</h1>
     <p>You are already logged in. You have to log out before creating/logging into a different account.</p>
-    <?php header("refresh:2, url=index.php")?>
+    <?php header("refresh:2, url=index.php") ?>
 </main>
 </body>
 

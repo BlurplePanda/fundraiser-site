@@ -15,7 +15,7 @@ $pw = $_POST['password'];
 
 <body>
 <header>
-    <?php include 'header.php'?>
+    <?php include 'header.php' ?>
 </header>
 
 <main>
@@ -27,13 +27,12 @@ $pw = $_POST['password'];
     $hash = $login_record['FRPassword'];
 
     $verify = password_verify($pw, $hash);
-    if($verify) {
+    if ($verify) {
         echo "<h1>Success!</h1>
               <p>Logged in. Redirecting...</p>";
         $_SESSION['user'] = $login_record['FundraiserID'];
         header("refresh:2, url=index.php");
-    }
-    else {
+    } else {
         echo "<h1>Uh oh!</h1>
               <p>Incorrect email or password. Redirecting...";
         header("refresh:2, url=login.php");

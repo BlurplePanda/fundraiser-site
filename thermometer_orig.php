@@ -18,28 +18,29 @@ To generate the graph at the right using the above example setting, the script w
 This script requires access to a web server that supports PHP and that has the "GD" graphic library installed.
 -------- Script Starts Here ------->*/
 
-function thermGraph( $current, $goal, $width, $height, $font ) {
+function thermGraph($current, $goal, $width, $height, $font)
+{
 
     $bar = 0.50;
 
     // create the image
     $image = ImageCreate($width, $height);
-    $bg    = ImageColorAllocate($image,255,255,255 );
-    $fg    = ImageColorAllocate($image,255,0,0);
-    $tx    = ImageColorAllocate($image,0,0,0);
+    $bg = ImageColorAllocate($image, 255, 255, 255);
+    $fg = ImageColorAllocate($image, 255, 0, 0);
+    $tx = ImageColorAllocate($image, 0, 0, 0);
 
-    $bulbtop = $height-$width;
-    $bulbcenterx = $width/2;
-    $bulbcentery = $height-($width/2);
+    $bulbtop = $height - $width;
+    $bulbcenterx = $width / 2;
+    $bulbcentery = $height - ($width / 2);
     $bulbwidth = $width;
     $bulbheight = $width;
 
-    $barleft = $bulbcenterx-($bulbcenterx*$bar);
-    $barright = $bulbcenterx+($bulbcenterx*$bar);
+    $barleft = $bulbcenterx - ($bulbcenterx * $bar);
+    $barright = $bulbcenterx + ($bulbcenterx * $bar);
     $barbottom = $bulbtop;
 
     //  Build background
-    ImageFilledRectangle($image,0,0,$width,$height,$bg);
+    ImageFilledRectangle($image, 0, 0, $width, $height, $bg);
 
     //  Build bottom bulb
     imagearc($image, $bulbcenterx, $bulbcentery, $bulbwidth, $bulbheight, 0, 360, $fg);
@@ -51,10 +52,10 @@ function thermGraph( $current, $goal, $width, $height, $font ) {
         $barbottom,
         $barright,
         $bulbcentery,
-        $fg );
+        $fg);
 
     //  Draw Top Border
-    ImageRectangle( $image,
+    ImageRectangle($image,
         $barleft,
         0,
         $barright,
@@ -62,35 +63,35 @@ function thermGraph( $current, $goal, $width, $height, $font ) {
         $fg);
 
     //  Fill to %
-    ImageFilledRectangle( $image,
+    ImageFilledRectangle($image,
         $barleft,
-        $barbottom * (1-($current/$goal)),
+        $barbottom * (1 - ($current / $goal)),
         $barright,
         $barbottom,
-        $fg );
+        $fg);
 
     //  Add tic's
-    for( $k=25; $k<100; $k+=25 ) {
+    for ($k = 25; $k < 100; $k += 25) {
 
-        ImageFilledRectangle( $image,
-            $barright -5,
-            $barbottom - ($barbottom)*($k/100) -0.5,
-            $barright -1,
-            ($barbottom) - ($barbottom)*($k/100)+0.5,
-            $tx );
+        ImageFilledRectangle($image,
+            $barright - 5,
+            $barbottom - ($barbottom) * ($k / 100) - 0.5,
+            $barright - 1,
+            ($barbottom) - ($barbottom) * ($k / 100) + 0.5,
+            $tx);
 
 
         ImageString($image, $font,
-            $barright +2,
-            (($barbottom) - ($barbottom)*($k/100)) - (ImageFontHeight($font)/2),
-            sprintf( "%2d", $k),$tx);
+            $barright + 2,
+            (($barbottom) - ($barbottom) * ($k / 100)) - (ImageFontHeight($font) / 2),
+            sprintf("%2d", $k), $tx);
     }
 
     // Add % over BULB
-    $pct = sprintf( "%d%%", ($current/$goal)*100 );
-    $pct_font = $font+2;
-    ImageString( $image, $pct_font, ($bulbcenterx)-((strlen($pct)/2)*ImageFontWidth($pct_font)),
-        ($bulbcentery)-(ImageFontHeight($pct_font) / 2),
+    $pct = sprintf("%d%%", ($current / $goal) * 100);
+    $pct_font = $font + 2;
+    ImageString($image, $pct_font, ($bulbcenterx) - ((strlen($pct) / 2) * ImageFontWidth($pct_font)),
+        ($bulbcentery) - (ImageFontHeight($pct_font) / 2),
         $pct, $bg);
 
 
@@ -104,6 +105,6 @@ thermGraph(
     $_GET["Goal"],
     $_GET["Width"],
     $_GET["Height"],
-    $_GET["Font"] );
+    $_GET["Font"]);
 
 ?>

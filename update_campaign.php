@@ -3,7 +3,7 @@ include 'session_connection.php';
 
 $charity = $_POST['charity'];
 $desc = $_POST['desc'];
-if(isset($_POST['img'])){
+if (isset($_POST['img'])) {
     $img = $_POST['img'];
 } else {
     $img = $_POST['currimg'];
@@ -25,16 +25,15 @@ $update_page = "UPDATE pages SET ChosenCharity='$charity', PageDesc='$desc',
 
 <body>
 <header>
-    <?php include 'header.php'?>
+    <?php include 'header.php' ?>
 </header>
 
 <main>
     <?php
-    if(mysqli_query($con, $update_page)){
+    if (mysqli_query($con, $update_page)) {
         echo "<h1>Page updated!</h1>";
-        header("refresh:2; url=campaign.php?id=".$page."&fromurl=edit_campaign.php?id=".$page);
-    }
-    else {
+        header("refresh:2; url=campaign.php?id=" . $page . "&fromurl=edit_campaign.php?id=" . $page);
+    } else {
         echo "<h1>Uh oh!</h1>
               <p>Looks like that didn't work. Please try again.";
     }

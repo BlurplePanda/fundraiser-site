@@ -1,5 +1,5 @@
 <?php include 'session_connection.php';
-if(isset($_SESSION['user'])){
+if (isset($_SESSION['user'])) {
     header("location:logout_error_page.php");
 }?><!DOCTYPE html>
 
@@ -13,7 +13,7 @@ if(isset($_SESSION['user'])){
 
 <body>
 <header>
-    <?php include 'header.php'?>
+    <?php include 'header.php' ?>
 </header>
 
 <main>

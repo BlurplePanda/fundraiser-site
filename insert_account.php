@@ -21,17 +21,16 @@ $insert_account = "INSERT INTO fundraisers (FRFName, FRLName, FREmail, FRPasswor
 
 <body>
 <header>
-    <?php include 'header.php'?>
+    <?php include 'header.php' ?>
 </header>
 
 <main>
     <?php
-    if(mysqli_query($con, $insert_account)){
+    if (mysqli_query($con, $insert_account)) {
         echo "<h1>Account created!</h1>
               <p>You may now log in.</p>";
         header("refresh:1; url=login.php");
-    }
-    else {
+    } else {
         echo "<h1>Uh oh!</h1>
               <p>Looks like that didn't work. Please try again once redirected.";
         header("refresh:2; url=create_campaign.php");
