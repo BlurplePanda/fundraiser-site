@@ -20,6 +20,8 @@ if (!isset($_SESSION['user'])) {
 <main>
     <h1>Create a fundraising campaign</h1>
     <form action='insert_campaign.php' method='post'>
+        <label for='title'>Title:</label>
+        <input type='text' id='title' name='title'><br>
         <label for='charity'>Charity:</label>
         <input type='text' id='charity' name='charity'><br>
         <label for='desc'>Campaign description:</label>
