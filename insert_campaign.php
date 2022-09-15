@@ -1,14 +1,15 @@
 <?php
 include 'session_connection.php';
 
+$name = $_POST['title'];
 $charity = $_POST['charity'];
 $desc = $_POST['desc'];
 $img = $_POST['img'];
 $goal = $_POST['goal'];
 $fr_id = $_SESSION['user'];
 
-$insert_page = "INSERT INTO pages (FundraiserID, ChosenCharity, PageDesc, PageImage, PageGoal)
-                VALUES ('$fr_id', '$charity', '$desc', '$img', '$goal')";
+$insert_page = "INSERT INTO pages (PageName, FundraiserID, ChosenCharity, PageDesc, PageImage, PageGoal)
+                VALUES ('$name', '$fr_id', '$charity', '$desc', '$img', '$goal')";
 ?><!DOCTYPE html>
 
 <html lang='en'>
