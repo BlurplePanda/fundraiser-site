@@ -32,11 +32,13 @@ $update_page = "UPDATE pages SET PageName='$title', ChosenCharity='$charity', Pa
 <main>
     <?php
     if (mysqli_query($con, $update_page)) {
-        echo "<h1>Page updated!</h1>";
-        header("refresh:2; url=campaign.php?id=" . $page . "&fromurl=edit_campaign.php?id=" . $page);
+        echo "<h1>Page updated!</h1>
+              <p>Redirecting...</p>";
+        header("refresh:1; url=campaign.php?id=" . $page . "&fromurl=edit_campaign.php?id=" . $page);
     } else {
         echo "<h1>Uh oh!</h1>
-              <p>Looks like that didn't work. Please try again.";
+              <p>Looks like that didn't work. Please try again once redirected.";
+        header("refresh:2; url=edit_campaign.php?id=".$page);
     }
 
     ?>
