@@ -1,6 +1,7 @@
 <?php
 include 'session_connection.php';
 
+$title = $_POST['title'];
 $charity = $_POST['charity'];
 $desc = $_POST['desc'];
 if (isset($_POST['img'])) {
@@ -11,7 +12,7 @@ if (isset($_POST['img'])) {
 $goal = $_POST['goal'];
 $page = $_POST['page'];
 
-$update_page = "UPDATE pages SET ChosenCharity='$charity', PageDesc='$desc',
+$update_page = "UPDATE pages SET PageName='$title', ChosenCharity='$charity', PageDesc='$desc',
                 PageImage='$img', PageGoal='$goal' WHERE PageID='$page'";
 ?><!DOCTYPE html>
 
