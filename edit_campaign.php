@@ -16,6 +16,7 @@ if ($this_campaign_record['FundraiserID'] != $user) {
 }
 
 // For efficiency!
+$title = $this_campaign_record['PageName'];
 $charity = $this_campaign_record['ChosenCharity'];
 $desc = $this_campaign_record['PageDesc'];
 $image = $this_campaign_record['PageImage'];
@@ -40,6 +41,9 @@ $goal = $this_campaign_record['PageGoal'];
 
     <!-- Form to alter campaign details, default values are current details -->
     <form action='update_campaign.php' method='post'>
+
+        <label for='title'>Title:</label>
+        <input type='text' id='title' name='title' value='<?php echo $title ?>'><br>
 
         <label for='charity'>Charity:</label>
         <input type='text' id='charity' name='charity' value='<?php echo $charity ?>'><br>
