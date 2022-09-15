@@ -17,6 +17,7 @@
 <main>
     <h1>Oops!</h1>
     <p>You have to log in to access that page.</p>
+    <p>Redirecting...</p>
     <?php header("refresh:2, url=login.php") ?>
 </main>
 </body>

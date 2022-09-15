@@ -17,7 +17,8 @@
 <main>
     <h1>Oops!</h1>
     <p>You are already logged in. You have to log out before creating/logging into a different account.</p>
-    <?php header("refresh:2, url=index.php") ?>
+    <p>Redirecting...</p>
+    <?php header("refresh:3, url=index.php") ?>
 </main>
 </body>
 

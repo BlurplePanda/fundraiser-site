@@ -23,8 +23,6 @@ if (mysqli_query($con, $insert_donor)) {
 } else {
     $donorinsert = false;
 }
-
-header("refresh: 2; url=$fromurl");
 ?><!DOCTYPE html>
 
 <html lang='en'>
@@ -43,13 +41,14 @@ header("refresh: 2; url=$fromurl");
 <main>
     <?php
     if ($pledgeinsert && $donorinsert) {
-        echo "<h1>Success!</h1>
-              <p>Pledge successfully made :)";
+        echo "<h1>Pledge successfully made!</h1>
+              <p>Redirecting...";
+        header("refresh: 1; url=$fromurl");
     } else {
         echo "<h1>Uh oh!</h1>
-              <p>Looks like that didn't work. Please try again.";
+              <p>Looks like that didn't work. Please try again once redirected.";
+        header("refresh: 2; url=$fromurl");
     }
-    echo "<p>Redirecting...";
     ?>
 </main>
 </body>

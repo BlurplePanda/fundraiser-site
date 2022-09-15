@@ -38,11 +38,13 @@ if ($this_campaign_record['FundraiserID'] != $user) {
     <?php
     // Check if deletion worked, display message accordingly
     if (mysqli_query($con, $delete_page)) {
-        echo "<h1>Page deleted.</h1>";
-        header("refresh:2; url=user_campaigns.php");
+        echo "<h1>Page deleted.</h1>
+              <p>Redirecting...</p>";
+        header("refresh:1; url=user_campaigns.php");
     } else {
         echo "<h1>Uh oh!</h1>
-              <p>Looks like that didn't work. Please try again.";
+              <p>Looks like that didn't work. Please try again once redirected.";
+        header("refresh:2; url=user_campaigns.php");
     }
 
     ?>
