@@ -31,7 +31,7 @@ $pw = $_POST['password'];
         echo "<h1>Success!</h1>
               <p>Logged in. Redirecting...</p>";
         $_SESSION['user'] = $login_record['FundraiserID'];
-        header("refresh:2, url=index.php");
+        header("refresh:1, url=index.php");
     } else {
         echo "<h1>Uh oh!</h1>
               <p>Incorrect email or password. Redirecting...";
