@@ -51,6 +51,7 @@ $goal = $this_campaign_record['PageGoal'];
         <label for='desc'>Campaign description:</label>
         <textarea id='desc' name='desc'><?php echo $desc ?></textarea><br>
 
+        <!-- Image radio group -->
         <table>
             <caption>Image:
                 <?php
@@ -95,7 +96,7 @@ $goal = $this_campaign_record['PageGoal'];
         <label for='goal'>Campaign goal:</label>
         <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal' value='<?php echo $goal ?>'>
 
-        <!-- Hidden input to pass the PageID -->
+        <!-- Hidden input to pass the PageID to form action page -->
         <input type='hidden' id='page' name='page' value='<?php echo $page ?>'>
 
         <!-- Submit button -->

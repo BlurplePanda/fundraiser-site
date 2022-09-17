@@ -17,7 +17,10 @@ include 'session_connection.php';
 
 <main>
     <?php
+    // Destroy the session (including session variables!)
     session_destroy();
+
+    // Message + redirect
     echo "<h1> Logged out! </h1>";
     echo "<p> Redirecting...";
     header("refresh:1, url=login.php")

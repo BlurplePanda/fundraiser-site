@@ -1,10 +1,12 @@
 <?php
 include 'session_connection.php';
 
+// Form results
 $title = $_POST['title'];
 $charity = $_POST['charity'];
 $desc = $_POST['desc'];
 if (isset($_POST['img'])) {
+    // Don't change the image if none was selected (ie if they have an image that they can't reselect)
     $img = $_POST['img'];
 } else {
     $img = $_POST['currimg'];
@@ -12,6 +14,7 @@ if (isset($_POST['img'])) {
 $goal = $_POST['goal'];
 $page = $_POST['page'];
 
+// Query to update the campaign/page in the database
 $update_page = "UPDATE pages SET PageName='$title', ChosenCharity='$charity', PageDesc='$desc',
                 PageImage='$img', PageGoal='$goal' WHERE PageID='$page'";
 ?><!DOCTYPE html>
@@ -31,6 +34,7 @@ $update_page = "UPDATE pages SET PageName='$title', ChosenCharity='$charity', Pa
 
 <main>
     <?php
+    // Check if query worked, display message (& redirect) accordingly
     if (mysqli_query($con, $update_page)) {
         echo "<h1>Page updated!</h1>
               <p>Redirecting...</p>";

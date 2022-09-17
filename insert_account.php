@@ -1,12 +1,14 @@
 <?php
 include 'session_connection.php';
 
+// Form results
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $email = $_POST['email'];
 $pw = $_POST['pw'];
 $bcrypt_pw = password_hash($pw, PASSWORD_BCRYPT);
 
+// Query to insert fundraiser account into database
 $insert_account = "INSERT INTO fundraisers (FRFName, FRLName, FREmail, FRPassword)
                 VALUES ('$fname', '$lname', '$email', '$bcrypt_pw')";
 ?><!DOCTYPE html>
@@ -26,6 +28,7 @@ $insert_account = "INSERT INTO fundraisers (FRFName, FRLName, FREmail, FRPasswor
 
 <main>
     <?php
+    // Check if query worked, display message accordingly
     if (mysqli_query($con, $insert_account)) {
         echo "<h1>Account created!</h1>
               <p>You may now log in.</p>";

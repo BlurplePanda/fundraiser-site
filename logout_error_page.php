@@ -15,10 +15,11 @@
 </header>
 
 <main>
+    <!-- Error message + redirection -->
     <h1>Oops!</h1>
     <p>You are already logged in. You have to log out before creating/logging into a different account.</p>
     <p>Redirecting...</p>
-    <?php header("refresh:3, url=index.php") ?>
+    <?php header("refresh:3, url=index.php") // Bit longer delay because more text to read! ?>
 </main>
 </body>
 

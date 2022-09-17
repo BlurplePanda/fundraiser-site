@@ -7,12 +7,13 @@ function thermGraph($current, $goal, $width, $height, $font)
 {
     $bar = 0.5;
 
-    // create the image
+    // Create the image
     $image = ImageCreate($width, $height);
     $bg = ImageColorAllocate($image, 255, 255, 255);
     $fg = ImageColorAllocate($image, 0, 75, 200);
     $tx = ImageColorAllocate($image, 0, 0, 0);
 
+    // Assign variables (for less confusion...)
     $bulbright = $height;
     $bulbcenterx = $height / 2;
     $bulbcentery = $height / 2;
@@ -73,8 +74,9 @@ function thermGraph($current, $goal, $width, $height, $font)
             $tick, $tx);
     }
 
-    // Add % or "Complete" over BULB
+    // Add % over BULB
     if ($current / $goal >= 1) {
+        // Default to 100% if it would otherwise be over 100%
         $pct = "100%";
     } else {
         $pct = sprintf("%d%%", ($current / $goal) * 100);
@@ -86,11 +88,12 @@ function thermGraph($current, $goal, $width, $height, $font)
         $pct, $bg);
 
 
-    // send the image
+    // Send the image
     header("content-type: image/png");
     imagepng($image);
 }
 
+// Run the function with the passed-in variables
 thermGraph(
     $_GET["Current"],
     $_GET["Goal"],

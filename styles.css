@@ -1,11 +1,6 @@
-/** {
-    color: #27829e;
-    background-color: white;
-}*/
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Open+Sans&display=swap'); /* Import font */
 
-/* sets defaults */
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Open+Sans&display=swap');
-
+/* Sets defaults */
 * {
     margin: 0;
     padding: 0;
@@ -30,7 +25,7 @@ h2 {
 }
 
 
-/* makes the header have set height and colour */
+/* Makes the header have set height and colour */
 header {
     background-color: #27829e;
     height: 145px;
@@ -44,31 +39,33 @@ p {
     text-align: center;
 }
 
-/* sets format for images, including rounding corners */
+/* Sets format for images, including rounding corners */
 img {
     vertical-align: middle;
     margin: 10px;
     border-radius: 5px;
     object-fit: cover;
 }
-
+/* Formats only the images in the search results (size) */
 .searchcampaignimage {
     width: 30px;
     height: 30px;
 }
 
-/* formats only the images in the all campaigns list (size, shadow) */
+/* Formats only the images in the all campaigns list (size, shadow) */
 .allcampaignsimage {
     width: 100px;
     height: 100px;
     box-shadow: 0px 0px 5px 5px #49a4c0;
 }
 
+/* Formats the image on each individual campaign page (size) */
 .singlecampaignimg {
     width: 250px;
     height: 250px;
 }
 
+/* Currently only applies to the logo image in the header */
 .center {
     text-align: center;
     display: block;
@@ -77,6 +74,7 @@ img {
     margin-top: 0;
 }
 
+/* Puts searches in two columns */
 .searches {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -86,28 +84,24 @@ img {
     text-align: center;
 }
 
-/* sets main (not header/footer/etc) to be less wide than the page and centred in the page */
+/* Sets main (not header/footer/etc) to be less wide than the page and centred in the page */
 main {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
 
-li {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 50px;
-}
-
+/* Colour of links (normal links in text) */
 a {
     color: #177ca7;
 }
 
+/* Colour of normal links when hovered over */
 a:hover {
     color: #49a4c0;
 }
 
-/* makes "button" links buttons */
+/* Makes "button" links buttons */
 a.button {
     text-decoration: none;
     padding: 4px;
@@ -117,21 +111,24 @@ a.button {
     color: #000000;
 }
 
+/* Makes buttons different colour when hovered */
 a.button:hover {
     background-color: #cccccc;
 }
 
+/* Makes links different colour when clicked (only shows briefly) */
 a:active {
     color: #27829e;
 }
 
-/* sets the styling for the button link for the current page 26809d*/
+/* Sets the styling for the button link for the current page */
 #current {
     background-color: #177ca7;
     font-size: 110%;
     color: white;
 }
 
+/* Navigation bar styling */
 nav {
     padding: 10px;
     margin-top: 15px;
@@ -140,38 +137,38 @@ nav {
     background-color: #dedede;
 }
 
+/* Styling for tables, table rows, and table cells - used in my forms, for radio groups */
 table {
     width: 100%;
 }
-
 tr {
     margin: 0px;
 }
-
 td {
     width: 25%;
     text-align: center;
 }
 
+/* Center text in forms */
 form {
     text-align: center;
 }
 
+/* Grid and columns for individual campaign pages (makes them appear side by side) */
 .campaign-info {
     display: grid;
     grid-template-columns: 50% 50%;
     margin-bottom: 50px;
 }
-
 .campaignimage {
     margin-left: auto;
     margin-right: 50px;
 }
-
 .campaigntext {
     text-align: left;
 }
 
+/* Make all campaigns page responsive to page size (wraps around if too long) */
 .all-campaigns-container {
     display: flex;
     flex-wrap: wrap;
@@ -179,6 +176,7 @@ form {
     justify-content: space-evenly;
 }
 
+/* Styles each campaign (and its image) shown on the campaign list page */
 .campaign {
     width: fit-content;
     max-width: 130px;
@@ -186,26 +184,20 @@ form {
     text-align: center;
     font-size: small;
 }
-
 .campaign img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* Image displayed in main body of home page */
 #home-page-image {
     width: 100%;
 }
 
+/* Images in radio group in create/edit campaign forms */
 .choose-image {
     background-color: white;
     width: 100px;
     height: 100px;
 }
-
-/* sets height and colour etc for footer */
-/*footer {
-    background-color: #dedede;
-    margin-top: 40px;
-    height: 50px;
-}*/

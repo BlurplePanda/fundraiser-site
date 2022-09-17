@@ -19,15 +19,23 @@ if (!isset($_SESSION['user'])) {
 
 <main>
     <h1>Create a fundraising campaign</h1>
+
+    <!-- "Create campaign" form -->
     <form action='insert_campaign.php' method='post'>
+
         <label for='title'>Title:</label>
         <input type='text' id='title' name='title'><br>
+
         <label for='charity'>Charity:</label>
         <input type='text' id='charity' name='charity'><br>
+
         <label for='desc'>Campaign description:</label>
         <textarea id='desc' name='desc'></textarea><br>
+
+        <!-- Image radio group -->
         <table>
             <tr>Image:</tr>
+            <!-- Each cell contains an option -->
             <tr>
                 <td><input type='radio' id='food' name='img' value='food.png'>
                     <label for='food'><img src='images/food.png' class='choose-image'></label></td>
@@ -39,8 +47,10 @@ if (!isset($_SESSION['user'])) {
                     <label for='money'><img src='images/money.png' class='choose-image'></label></td>
             </tr>
         </table>
+
         <label for='goal'>Campaign goal:</label>
         <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal'>
+
         <!-- Submit button -->
         <input type='submit' value='Submit'>
     </form>

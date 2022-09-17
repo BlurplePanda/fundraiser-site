@@ -19,6 +19,7 @@
     <h1>Oops!</h1>
     <p>That's not your campaign. Make sure you are logged in to the right account.</p>
     <p>Redirecting...</p>
+    <!-- Redirect to "My campaigns" -->
     <?php header("refresh:2, url=user_campaigns.php") ?>
 </main>
 </body>

@@ -15,6 +15,7 @@
 </header>
 
 <main>
+    <!-- Error message + redirection -->
     <h1>Oops!</h1>
     <p>You have to log in to access that page.</p>
     <p>Redirecting...</p>

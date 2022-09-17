@@ -1,6 +1,7 @@
 <?php
 include 'session_connection.php';
 
+// Form results
 $email = $_POST['email'];
 $pw = $_POST['password'];
 ?><!DOCTYPE html>
@@ -20,17 +21,22 @@ $pw = $_POST['password'];
 
 <main>
     <?php
+    // Query to find account
     $login_query = "SELECT FundraiserID, FRPassword FROM fundraisers WHERE fundraisers.FREmail = '$email'";
     $login_result = mysqli_query($con, $login_query);
     $login_record = mysqli_fetch_assoc($login_result);
 
+    // The (encrypted) password stored in the database
     $hash = $login_record['FRPassword'];
 
+    // Check if the entered password matches the encrypted one
     $verify = password_verify($pw, $hash);
+
+    // Display message and redirect accordingly
     if ($verify) {
         echo "<h1>Success!</h1>
               <p>Logged in. Redirecting...</p>";
-        $_SESSION['user'] = $login_record['FundraiserID'];
+        $_SESSION['user'] = $login_record['FundraiserID']; // Put ID of current "account" into a session variable
         header("refresh:1, url=index.php");
     } else {
         echo "<h1>Uh oh!</h1>
