@@ -2,8 +2,8 @@
 include 'session_connection.php';
 
 // Form results
-$email = $_POST['email'];
-$pw = $_POST['password'];
+$email = mysqli_real_escape_string($con, $_POST['email']);
+$pw = mysqli_real_escape_string($con, $_POST['password']);
 ?><!DOCTYPE html>
 
 <html lang='en'>

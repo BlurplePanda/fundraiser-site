@@ -2,12 +2,12 @@
 include 'session_connection.php';
 
 // Form results
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$email = $_POST['email'];
-$amount = $_POST['amount'];
-$page = $_POST['page']; // Campaign/page being pledged to
-$fromurl = $_POST['url']; // Previous url
+$fname = mysqli_real_escape_string($con, $_POST['fname']);
+$lname = mysqli_real_escape_string($con, $_POST['lname']);
+$email = mysqli_real_escape_string($con, $_POST['email']);
+$amount = mysqli_real_escape_string($con, $_POST['amount']);
+$page = mysqli_real_escape_string($con, $_POST['page']); // Campaign/page being pledged to
+$fromurl = mysqli_real_escape_string($con, $_POST['url']); // Previous url
 
 // Query to insert donor details into database
 $insert_donor = "INSERT INTO donors (DonorFName, DonorLName, DonorEmail)

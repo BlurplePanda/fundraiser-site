@@ -2,10 +2,10 @@
 include 'session_connection.php';
 
 // Form results
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$email = $_POST['email'];
-$pw = $_POST['pw'];
+$fname = mysqli_real_escape_string($_POST['fname']);
+$lname = mysqli_real_escape_string($_POST['lname']);
+$email = mysqli_real_escape_string($_POST['email']);
+$pw = mysqli_real_escape_string($_POST['pw']);
 $bcrypt_pw = password_hash($pw, PASSWORD_BCRYPT);
 
 // Query to insert fundraiser account into database

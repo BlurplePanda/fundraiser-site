@@ -4,7 +4,7 @@ if (!isset($_SESSION['user'])) {
     header("location:login_error_page.php");
 }
 $user = $_SESSION['user'];
-$page = $_GET['id']; // Passed through url
+$page = mysqli_real_escape_string($con, $_GET['id']); // Passed through url
 
 $this_campaign_query = "SELECT * FROM pages WHERE pages.PageID = '$page'";
 $this_campaign_result = mysqli_query($con, $this_campaign_query);

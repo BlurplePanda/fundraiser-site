@@ -30,7 +30,7 @@
 
             <?php
             if (isset($_POST['csearch'])) {
-                $c_search = $_POST['csearch'];
+                $c_search = mysqli_real_escape_string($con, $_POST['csearch']);
 
                 // Select all campaigns with matching titles
                 $c_search_query = "SELECT pages.PageID, pages.PageImage, pages.PageName
@@ -64,7 +64,7 @@
 
             <?php
             if (isset($_POST['frsearch'])) {
-                $fr_search = $_POST['frsearch'];
+                $fr_search = mysqli_real_escape_string($con, $_POST['frsearch']);
 
                 // Select all campaigns with matching fundraiser names
                 $fr_search_query = "SELECT pages.PageID, pages.PageName, pages.PageImage, fundraisers.FRFName, fundraisers.FRLName

@@ -2,11 +2,11 @@
 include 'session_connection.php';
 
 // Form results
-$name = $_POST['title'];
-$charity = $_POST['charity'];
-$desc = $_POST['desc'];
-$img = $_POST['img'];
-$goal = $_POST['goal'];
+$name = mysqli_real_escape_string($con, $_POST['title']);
+$charity = mysqli_real_escape_string($con, $_POST['charity']);
+$desc = mysqli_real_escape_string($con, $_POST['desc']);
+$img = mysqli_real_escape_string($con, $_POST['img']);
+$goal = mysqli_real_escape_string($con, $_POST['goal']);
 $fr_id = $_SESSION['user'];
 
 // Query to insert campaign into database

@@ -7,7 +7,7 @@ if (!isset($_SESSION['user'])) {
 }
 
 $user = $_SESSION['user'];
-$page = $_GET['id']; // Passed through url
+$page = mysqli_real_escape_string($con, $_GET['id']); // Passed through url, escaped just in case
 
 $this_campaign_query = "SELECT FundraiserID FROM pages WHERE pages.PageID = '$page'";
 $this_campaign_result = mysqli_query($con, $this_campaign_query);

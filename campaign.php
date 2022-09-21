@@ -18,7 +18,7 @@
 
     if (isset($_GET['id'])) {
         // Assign id to a variable (if a campaign has been chosen)
-        $id = $_GET['id'];
+        $id = mysqli_real_escape_string($con, $_GET['id']); // Escape in case of SQL injection through url
 
         // Get all info about this specific campaign
         $this_campaign_query = "SELECT pages.*, fundraisers.FRFName, fundraisers.FRLName, IFNULL(SUM(pagepledges.PledgeAmount), 0) as PledgeTotal

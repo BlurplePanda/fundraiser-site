@@ -2,17 +2,17 @@
 include 'session_connection.php';
 
 // Form results
-$title = $_POST['title'];
-$charity = $_POST['charity'];
-$desc = $_POST['desc'];
+$title = mysqli_real_escape_string($con, $_POST['title']);
+$charity = mysqli_real_escape_string($con, $_POST['charity']);
+$desc = mysqli_real_escape_string($con, $_POST['desc']);
 if (isset($_POST['img'])) {
     // Don't change the image if none was selected (ie if they have an image that they can't reselect)
-    $img = $_POST['img'];
+    $img = mysqli_real_escape_string($con, $_POST['img']);
 } else {
-    $img = $_POST['currimg'];
+    $img = mysqli_real_escape_string($con, $_POST['currimg']);
 }
-$goal = $_POST['goal'];
-$page = $_POST['page'];
+$goal = mysqli_real_escape_string($con, $_POST['goal']);
+$page = mysqli_real_escape_string($con, $_POST['page']);
 
 // Query to update the campaign/page in the database
 $update_page = "UPDATE pages SET PageName='$title', ChosenCharity='$charity', PageDesc='$desc',
