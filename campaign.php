@@ -52,16 +52,16 @@
               <form action='insert_pledge.php' method='post'>
               
               <label for='fname'>First name:</label>
-              <input type='text' id='fname' name='fname'><br>
+              <input type='text' id='fname' name='fname' maxlength='48' required><br>
               
               <label for='lname'>Last name:</label>
-              <input type='text' id='lname' name='lname'><br>
+              <input type='text' id='lname' name='lname' maxlength='72' required><br>
               
               <label for='email'>Email address:</label>
-              <input type='email' id='email' name='email'><br>
+              <input type='email' id='email' name='email' required maxlength='254'><br>
               
               <label for='amount'>Pledge amount:</label>
-              <input type='number' step='0.01' min='0' max='999999.99' id='amount' name='amount'>
+              <input type='number' step='0.01' min='0' max='999999.99' id='amount' name='amount' required>
               
               <!-- Pass PageID and the current url to the form action page -->
               <input type='hidden' id='page' name='page' value='$id'>

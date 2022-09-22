@@ -24,16 +24,16 @@ if (isset($_SESSION['user'])) {
     <!-- Create account form -->
     <form action='insert_account.php' method='post'>
         <label for='fname'>First name:</label>
-        <input type='text' id='fname' name='fname'><br>
+        <input type='text' id='fname' name='fname' maxlength='48' required><br>
 
         <label for='lname'>Last name:</label>
-        <input type='text' id='lname' name='lname'><br>
+        <input type='text' id='lname' name='lname' maxlength='72' required><br>
 
         <label for='email'>Email address:</label>
-        <input type='email' id='email' name='email'><br>
+        <input type='email' id='email' name='email' maxlength='254' required><br>
 
         <label for='pw'>Password:</label>
-        <input type='password' id='pw' name='pw'><br>
+        <input type='password' id='pw' name='pw' maxlength='255' required><br>
 
         <!-- Submit button -->
         <input type='submit' value='Submit'>

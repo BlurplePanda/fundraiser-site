@@ -24,32 +24,33 @@ if (!isset($_SESSION['user'])) {
     <form action='insert_campaign.php' method='post'>
 
         <label for='title'>Title:</label>
-        <input type='text' id='title' name='title'><br>
+        <input type='text' id='title' name='title' maxlength='48' required><br>
 
         <label for='charity'>Charity:</label>
-        <input type='text' id='charity' name='charity'><br>
+        <input type='text' id='charity' name='charity' maxlength='64' required><br>
 
         <label for='desc'>Campaign description:</label>
-        <textarea id='desc' name='desc'></textarea><br>
+        <textarea id='desc' name='desc' maxlength='500' required></textarea><br>
 
         <!-- Image radio group -->
         <table>
             <tr>Image:</tr>
             <!-- Each cell contains an option -->
             <tr>
-                <td><input type='radio' id='food' name='img' value='food.png'>
+                <!-- required attribute: https://stackoverflow.com/a/8287947 -->
+                <td><input type='radio' id='food' name='img' value='food.png' required>
                     <label for='food'><img src='images/food.png' class='choose-image'></label></td>
-                <td><input type='radio' id='health' name='img' value='Public-health-icon.png'>
+                <td><input type='radio' id='health' name='img' value='Public-health-icon.png' required>
                     <label for='health'><img src='images/Public-health-icon.png' class='choose-image'></label></td>
-                <td><input type='radio' id='education' name='img' value='learn-icon.png'>
+                <td><input type='radio' id='education' name='img' value='learn-icon.png' required>
                     <label for='education'><img src='images/learn-icon.png' class='choose-image'></label></td>
-                <td><input type='radio' id='money' name='img' value='money.png'>
+                <td><input type='radio' id='money' name='img' value='money.png' required>
                     <label for='money'><img src='images/money.png' class='choose-image'></label></td>
             </tr>
         </table>
 
         <label for='goal'>Campaign goal:</label>
-        <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal'>
+        <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal' required>
 
         <!-- Submit button -->
         <input type='submit' value='Submit'>

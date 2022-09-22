@@ -43,13 +43,13 @@ $goal = $this_campaign_record['PageGoal'];
     <form action='update_campaign.php' method='post'>
 
         <label for='title'>Title:</label>
-        <input type='text' id='title' name='title' value='<?php echo $title ?>'><br>
+        <input type='text' id='title' name='title' value='<?php echo $title ?>' maxlength='48' required><br>
 
         <label for='charity'>Charity:</label>
-        <input type='text' id='charity' name='charity' value='<?php echo $charity ?>'><br>
+        <input type='text' id='charity' name='charity' value='<?php echo $charity ?>' maxlength='64' required><br>
 
         <label for='desc'>Campaign description:</label>
-        <textarea id='desc' name='desc'><?php echo $desc ?></textarea><br>
+        <textarea id='desc' name='desc' maxlength='500' required><?php echo $desc ?></textarea><br>
 
         <!-- Image radio group -->
         <table>
@@ -94,7 +94,7 @@ $goal = $this_campaign_record['PageGoal'];
         </table>
 
         <label for='goal'>Campaign goal:</label>
-        <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal' value='<?php echo $goal ?>'>
+        <input type='number' step='0.01' min='0' max='9999999.99' id='goal' name='goal' value='<?php echo $goal ?>' required>
 
         <!-- Hidden input to pass the PageID to form action page -->
         <input type='hidden' id='page' name='page' value='<?php echo $page ?>'>

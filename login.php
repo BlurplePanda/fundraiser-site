@@ -23,10 +23,10 @@ if (isset($_SESSION['user'])) {
     <!--Login form-->
     <form name='login_form' id='login_form' method='post' action='process_login.php'>
         <label for='email'>Email address:</label>
-        <input type='email' id='email' name='email'><br>
+        <input type='email' id='email' name='email' maxlength='254' required><br>
 
         <label for='password'>Password:</label>
-        <input type='password' id='password' name='password'><br>
+        <input type='password' id='password' name='password' maxlength='255' required><br>
 
         <input type='submit' value='Log in'>
     </form>
