@@ -9,17 +9,32 @@ $amount = mysqli_real_escape_string($con, $_POST['amount']);
 $page = mysqli_real_escape_string($con, $_POST['page']); // Campaign/page being pledged to
 $fromurl = mysqli_real_escape_string($con, $_POST['url']); // Previous url
 
-// Query to insert donor details into database
-$insert_donor = "INSERT INTO donors (DonorFName, DonorLName, DonorEmail)
-                 VALUES ('$fname', '$lname', '$email')";
-
-// Check if donor insert worked
-if (mysqli_query($con, $insert_donor)) {
+// Check if donor already in database
+$check_donor = "SELECT DonorID FROM donors WHERE DonorFName = '$fname' AND DonorLName = '$lname' AND DonorEmail = '$email'";
+$check_donor_result = mysqli_query($con, $check_donor);
+if (mysqli_num_rows($check_donor_result) == 1) {
+    // If it is, set id for pledge to that donor id
+    $newdonorid = mysqli_fetch_assoc($check_donor_result)['DonorID'];
     $donorinsert = true;
-    $newdonorid = mysqli_insert_id($con); // The auto-generated/incremented ID of the just-inserted donor
+}
+else {
+    // Query to insert donor details into database
+    $insert_donor = "INSERT INTO donors (DonorFName, DonorLName, DonorEmail)
+                     VALUES ('$fname', '$lname', '$email')";
 
+    // Check if donor insert worked
+    if (mysqli_query($con, $insert_donor)) {
+        $donorinsert = true;
+        $newdonorid = mysqli_insert_id($con); // The auto-generated/incremented ID of the just-inserted donor
+    }
+    else {
+        $donorinsert = false;
+    }
+}
+
+if($donorinsert) {
     // Query to insert pledge details into database (using the new donor)
-    $insert_pledge = "INSERT INTO pledges (DonorID, PageID, PledgeAmount) VALUES ($newdonorid, $page, $amount)";
+    $insert_pledge = "INSERT INTO pledges (DonorID, PageID, PledgeAmount) VALUES ('$newdonorid', '$page', '$amount')";
 
     // Check if pledge insert worked
     if (!mysqli_query($con, $insert_pledge)) {
@@ -27,8 +42,6 @@ if (mysqli_query($con, $insert_donor)) {
     } else {
         $pledgeinsert = true;
     }
-} else {
-    $donorinsert = false;
 }
 ?><!DOCTYPE html>
 
