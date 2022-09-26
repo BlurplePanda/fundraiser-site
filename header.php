@@ -1,7 +1,9 @@
 <?php $current = basename($_SERVER['PHP_SELF']) // Assign current base url (filename) to a variable ?>
 
 <!-- Logo image -->
-<img src='images/rundfaise-logo.png' alt='Rundfaise logo and text: Donate - Support - Fundraise' class='center'>
+<a href='index.php'>
+    <img src='images/rundfaise-logo.png' alt='Rundfaise logo and text: Donate - Support - Fundraise' class='center'>
+</a>
 
 <!-- Nav bar (links) -->
 <nav>
