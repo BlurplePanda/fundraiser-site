@@ -204,3 +204,11 @@ form {
     width: 100px;
     height: 100px;
 }
+
+/* List and list items */
+ul {
+    margin: 15px auto;
+}
+li {
+    margin: 10px auto;
+}
