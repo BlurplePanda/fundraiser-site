@@ -35,6 +35,10 @@ if (isset($_SESSION['user'])) {
         <label for='pw'>Password:</label>
         <input type='password' id='pw' name='pw' maxlength='255' required><br>
 
+        <br><input type='checkbox' id='privacy' required>
+        <label for='privacy'>I have read and understood Rundfaise's
+            <a href='privacy.php'>privacy policy</a>.</label><br>
+
         <!-- Submit button -->
         <input type='submit' value='Submit'>
     </form>

@@ -61,7 +61,11 @@
               <input type='email' id='email' name='email' required maxlength='254'><br>
               
               <label for='amount'>Pledge amount:</label>
-              <input type='number' step='0.01' min='0' max='999999.99' id='amount' name='amount' required>
+              <input type='number' step='0.01' min='0' max='999999.99' id='amount' name='amount' required><br>
+              
+              <br><input type='checkbox' id='privacy' required>
+              <label for='privacy'>I have read and understood Rundfaise's 
+              <a href='privacy.php'>privacy policy</a>.</label><br>
               
               <!-- Pass PageID and the current url to the form action page -->
               <input type='hidden' id='page' name='page' value='$id'>
@@ -74,9 +78,7 @@
         // Link to return to previous url, which was passed in a get variable
         echo "<p><a href=" . $_GET['fromurl'] . ">Back to previous page</a>";
 
-    }
-
-    // If no campaign was chosen (ie the url was simply typed in)
+    } // If no campaign was chosen (ie the url was simply typed in)
     else {
         echo "<h1>You have to choose a campaign!</h1>
               <p>Redirecting...</p>";
