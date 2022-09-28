@@ -27,7 +27,7 @@
             securely, and they are automatically deleted when You close Your browser.</li>
         <li>All personal data collected by Rundfaise is required in order for Us to perform Our purpose as a business
             and website. Pledges and accounts cannot be created without the entry of personal data. As such, if data is
-            not voluntary supplied, certain important functions of our website will not be available to You.</li>
+            not voluntarily supplied, certain important functions of our website will not be available to You.</li>
         <li>You may request access and/orcorrection of Your personal data being held by Us at any time. This is possible
             through Our contact email address: <a href='mailto:bootham@wgc.school.nz'>bootham@wgc.school.nz</a>.</li>
         <li>All registered users will be notified if Our privacy policy changes. We will contact you through the email
