@@ -27,7 +27,7 @@ h2 {
 
 /* Makes the header have set height and colour */
 header {
-    background-color: #27829e;
+    background-color: #315b96;
     height: 145px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -56,7 +56,7 @@ img {
 .allcampaignsimage {
     width: 100px;
     height: 100px;
-    box-shadow: 0px 0px 5px 5px #49a4c0;
+    box-shadow: 0px 0px 5px 5px #537db6;
 }
 
 /* Formats the image on each individual campaign page (size) */
@@ -93,12 +93,12 @@ main {
 
 /* Colour of links (normal links in text) */
 a {
-    color: #177ca7;
+    color: #224e9b;
 }
 
 /* Colour of normal links when hovered over */
 a:hover {
-    color: #49a4c0;
+    color: #537db6;
 }
 
 /* Makes "button" links buttons */
@@ -118,12 +118,12 @@ a.button:hover {
 
 /* Makes links different colour when clicked (only shows briefly) */
 a:active {
-    color: #27829e;
+    color: #315b96;
 }
 
 /* Sets the styling for the button link for the current page */
 #current {
-    background-color: #177ca7;
+    background-color: #224e9b;
     font-size: 110%;
     color: white;
 }
