@@ -39,13 +39,17 @@ if (!isset($_SESSION['user'])) {
             <tr>
                 <!-- required attribute: https://stackoverflow.com/a/8287947 -->
                 <td><input type='radio' id='food' name='img' value='food.png' required>
-                    <label for='food'><img src='images/food.png' class='choose-image'></label></td>
+                    <label for='food'><img src='images/food.png' alt='Icon of food in a bowl'
+                                           class='choose-image'></label></td>
                 <td><input type='radio' id='health' name='img' value='Public-health-icon.png' required>
-                    <label for='health'><img src='images/Public-health-icon.png' class='choose-image'></label></td>
+                    <label for='health'><img src='images/Public-health-icon.png' alt='Hands and plus sign health icon'
+                                             class='choose-image'></label></td>
                 <td><input type='radio' id='education' name='img' value='learn-icon.png' required>
-                    <label for='education'><img src='images/learn-icon.png' class='choose-image'></label></td>
+                    <label for='education'><img src='images/learn-icon.png' alt='Person reading icon'
+                                                class='choose-image'></label></td>
                 <td><input type='radio' id='money' name='img' value='money.png' required>
-                    <label for='money'><img src='images/money.png' class='choose-image'></label></td>
+                    <label for='money'><img src='images/money.png' alt='Icon of money (cash)'
+                                            class='choose-image'></label></td>
             </tr>
         </table>
 
