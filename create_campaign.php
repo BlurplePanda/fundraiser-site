@@ -34,7 +34,7 @@ if (!isset($_SESSION['user'])) {
 
         <!-- Image radio group -->
         <table>
-            <tr>Image:</tr>
+            <caption>Image:</caption>
             <!-- Each cell contains an option -->
             <tr>
                 <!-- required attribute: https://stackoverflow.com/a/8287947 -->
