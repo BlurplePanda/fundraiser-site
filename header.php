@@ -22,7 +22,7 @@
 
         echo "<a href='user_campaigns.php' class='button'";
         if ($current == 'user_campaigns.php' or $current == 'delete_campaign.php') {
-            echo "id='current'";
+            echo " id='current'";
         }
         echo "> My campaigns </a>";
 
