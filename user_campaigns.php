@@ -16,7 +16,7 @@ if (!isset($_SESSION['user'])) {
     <meta charset='utf-8'>
     <link rel='stylesheet' type='text/css' href='styles.css'>
     <!-- Small js function to confirm deletion -->
-    <script type='text/javascript'>
+    <script>
         function openurl(newurl) {
             if (confirm("Are you sure you want to delete this page?")) {
                 document.location = newurl;
