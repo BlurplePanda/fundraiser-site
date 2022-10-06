@@ -57,7 +57,7 @@ if (!isset($_SESSION['user'])) {
             echo "<br><a href='edit_campaign.php?id=" . $my_campaigns_record['PageID'] . "'>Edit</a>";
 
             // Link to delete said campaign
-            echo "&nbsp&nbsp&nbsp&nbsp<a href=javascript:openurl('delete_campaign.php?id=" . $my_campaigns_record['PageID'] . "')>Delete</a>";
+            echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href=javascript:openurl('delete_campaign.php?id=" . $my_campaigns_record['PageID'] . "')>Delete</a>";
 
             echo "</div>\n";
         }
